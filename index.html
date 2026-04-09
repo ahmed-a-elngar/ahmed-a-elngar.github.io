@@ -86,6 +86,18 @@
         --edu-bg: rgba(39, 114, 219, 0.04);
       }
 
+      /* Reduced motion preference - accessibility & performance */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
       html {
         scroll-behavior: smooth;
       }
@@ -111,6 +123,11 @@
         border-radius: 10px;
       }
 
+      /* Performance optimizations */
+      img,
+      video {
+        content-visibility: auto;
+      }
       .grain {
         position: fixed;
         top: 0;
@@ -166,6 +183,37 @@
         transform: scale(1.08);
         border-color: var(--accent);
       }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 5rem;
+        right: 1.8rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        z-index: 199;
+        border: none;
+        box-shadow: var(--glow-accent);
+        font-size: 20px;
+      }
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      .back-to-top:hover {
+        transform: translateY(-3px);
+      }
+
       nav {
         position: fixed;
         top: 0;
@@ -202,9 +250,14 @@
         letter-spacing: 0.1em;
         text-transform: uppercase;
         transition: color 0.2s;
+        position: relative;
       }
       .nav-links a:hover {
         color: var(--accent);
+      }
+      .nav-links a.active {
+        color: var(--accent);
+        border-bottom: 1px solid var(--accent);
       }
 
       /* Hero Section */
@@ -472,6 +525,7 @@
         cursor: pointer;
         transition: all 0.2s ease;
         font-family: "DM Mono", monospace;
+        min-height: 44px;
       }
       .filter-btn:hover {
         border-color: var(--accent);
@@ -483,6 +537,11 @@
         color: #fff;
         border-color: var(--accent);
         box-shadow: 0 2px 10px var(--accent-glow);
+      }
+      .filter-count {
+        font-size: 10px;
+        margin-left: 6px;
+        opacity: 0.8;
       }
 
       /* Skills */
@@ -611,12 +670,13 @@
         border-radius: 20px;
         padding: 1.4rem;
         border: 1px solid var(--border);
-        transition: all 0.3s ease;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          border-color 0.2s;
         display: flex;
         flex-direction: column;
         gap: 0.7rem;
-        opacity: 1;
-        transform: scale(1);
       }
       .project-card.hide {
         display: none;
@@ -792,6 +852,7 @@
         text-decoration: none;
         border: 1px solid var(--border);
         transition: all 0.2s ease;
+        min-height: 70px;
       }
       .contact-item:hover {
         border-color: var(--accent);
@@ -860,6 +921,13 @@
         .projects-grid {
           grid-template-columns: 1fr;
         }
+        .back-to-top {
+          bottom: 1.8rem;
+          right: 1.2rem;
+        }
+        .grain {
+          opacity: 0.005;
+        }
       }
     </style>
   </head>
@@ -867,6 +935,9 @@
     <div class="cursor" id="cursor"></div>
     <div class="grain"></div>
     <button class="theme-toggle" id="themeToggle">🌙</button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      ↑
+    </button>
 
     <nav>
       <a href="#" class="nav-logo">A⚡ELNGAR</a>
@@ -922,6 +993,7 @@
               src="assets/Aamed AbdElaziz sp.jpg"
               alt="Ahmed Elngar"
               id="profilePhoto"
+              loading="eager"
               onerror="
                 this.src =
                   'https://placehold.co/400x400/1a1a2e/2772db?text=Ahmed+Elngar'
@@ -967,18 +1039,6 @@
           <span class="skill-name">SonarQube</span>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
-        <div class="skill-chip reveal" data-level="82">
-          <span class="skill-name">Node.js</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d1" data-level="82">
-          <span class="skill-name">Java</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d2" data-level="65">
-          <span class="skill-name">Flutter</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
       </div>
       <div class="skills-sep reveal">familiar with</div>
       <div class="skills-grid">
@@ -992,6 +1052,18 @@
         </div>
         <div class="skill-chip familiar reveal d2" data-level="48">
           <span class="skill-name">Android</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-chip reveal" data-level="82">
+          <span class="skill-name">Node.js</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-chip reveal d1" data-level="82">
+          <span class="skill-name">Java</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-chip reveal d2" data-level="65">
+          <span class="skill-name">Flutter</span>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
       </div>
@@ -1053,22 +1125,16 @@
         Production systems I've built and maintained.
         <span style="color: var(--accent)">Filter by type ↓</span>
       </p>
-
-      <div class="filter-bar reveal">
+      <div class="filter-bar reveal" id="filterBar">
         <button class="filter-btn active" data-filter="all">
           📁 All Projects
         </button>
-        <button class="filter-btn" data-filter="fulltime">
-          🏢 Full-time (Idara/AlBadr)
-        </button>
-        <button class="filter-btn" data-filter="freelance">
-          💼 Freelance & Part-time
-        </button>
+        <button class="filter-btn" data-filter="fulltime">🏢 Full-time</button>
+        <button class="filter-btn" data-filter="freelance">💼 Freelance</button>
         <button class="filter-btn" data-filter="personal">⚡ Personal</button>
       </div>
-
       <div class="projects-grid" id="projectsGrid">
-        <!-- ===== FULL-TIME PROJECTS (Idara.net & AlBadr) ===== -->
+        <!-- Full-time Projects -->
         <div class="project-card reveal" data-category="fulltime">
           <div class="project-header">
             <div class="project-company">Idara.net</div>
@@ -1218,8 +1284,7 @@
             ><span class="tag">DataTables</span>
           </div>
         </div>
-
-        <!-- ===== FREELANCE & PART-TIME PROJECTS ===== -->
+        <!-- Freelance Projects -->
         <div class="project-card reveal d2" data-category="freelance">
           <div class="project-header">
             <div class="project-company">We2up</div>
@@ -1303,8 +1368,7 @@
             ><span class="tag">OCR</span>
           </div>
         </div>
-
-        <!-- ===== PERSONAL PROJECTS ===== -->
+        <!-- Personal Projects -->
         <div class="project-card reveal d1" data-category="personal">
           <div class="project-header">
             <div class="project-company">Personal</div>
@@ -1362,15 +1426,13 @@
             <div class="contact-label">Email</div>
             <div class="contact-value">AhmedAbdElazizElngar@gmail.com</div>
           </div></a
-        >
-        <a class="contact-item reveal d1" href="tel:0534501096"
+        ><a class="contact-item reveal d1" href="tel:0534501096"
           ><div class="contact-icon">📞</div>
           <div>
             <div class="contact-label">Phone / WhatsApp</div>
             <div class="contact-value">053 450 1096</div>
           </div></a
-        >
-        <a
+        ><a
           class="contact-item reveal"
           href="https://linkedin.com/in/ahmed-a-elngar"
           target="_blank"
@@ -1379,8 +1441,7 @@
             <div class="contact-label">LinkedIn</div>
             <div class="contact-value">ahmed-a-elngar</div>
           </div></a
-        >
-        <a
+        ><a
           class="contact-item reveal d1"
           href="https://github.com/ahmed-a-elngar"
           target="_blank"
@@ -1395,11 +1456,13 @@
 
     <footer>
       <p>
-        Ahmed Abdelaziz Elngar · Backend Developer · Jeddah, Saudi Arabia · 2025
+        Ahmed Abdelaziz Mohamed Elngar · Backend Developer · Jeddah, Saudi
+        Arabia · 2026
       </p>
     </footer>
 
     <script>
+      // Theme Toggle
       const toggle = document.getElementById("themeToggle");
       const root = document.documentElement;
       let dark = localStorage.getItem("theme") !== "light";
@@ -1413,6 +1476,7 @@
         localStorage.setItem("theme", t);
       });
 
+      // Reveal Observer
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -1432,10 +1496,31 @@
         .querySelectorAll(".reveal, .skill-chip")
         .forEach((el) => observer.observe(el));
 
-      // Project Filter
+      // Project Filter with Counts
       const filterBtns = document.querySelectorAll(".filter-btn");
       const projectCards = document.querySelectorAll(".project-card");
-
+      function updateFilterCounts() {
+        const counts = { all: 0, fulltime: 0, freelance: 0, personal: 0 };
+        projectCards.forEach((card) => {
+          const cat = card.getAttribute("data-category");
+          if (cat === "fulltime") counts.fulltime++;
+          else if (cat === "freelance") counts.freelance++;
+          else if (cat === "personal") counts.personal++;
+          counts.all++;
+        });
+        const btnAll = document.querySelector('[data-filter="all"]');
+        if (btnAll)
+          btnAll.innerHTML = `📁 All Projects <span class="filter-count">(${counts.all})</span>`;
+        const btnFull = document.querySelector('[data-filter="fulltime"]');
+        if (btnFull)
+          btnFull.innerHTML = `🏢 Full-time <span class="filter-count">(${counts.fulltime})</span>`;
+        const btnFree = document.querySelector('[data-filter="freelance"]');
+        if (btnFree)
+          btnFree.innerHTML = `💼 Freelance <span class="filter-count">(${counts.freelance})</span>`;
+        const btnPers = document.querySelector('[data-filter="personal"]');
+        if (btnPers)
+          btnPers.innerHTML = `⚡ Personal <span class="filter-count">(${counts.personal})</span>`;
+      }
       filterBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
           filterBtns.forEach((b) => b.classList.remove("active"));
@@ -1453,7 +1538,45 @@
           });
         });
       });
+      updateFilterCounts();
 
+      // Back to Top
+      const backBtn = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backBtn.classList.add("visible");
+        } else {
+          backBtn.classList.remove("visible");
+        }
+      });
+      backBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Scroll Spy
+      const sections = document.querySelectorAll("section, .hero");
+      const navLinks = document.querySelectorAll(".nav-links a");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+            current = section.getAttribute("id") || "hero";
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (
+            link.getAttribute("href") === `#${current}` ||
+            (current === "hero" && link.getAttribute("href") === "#")
+          ) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Cursor
       const cursor = document.getElementById("cursor");
       if (cursor && window.innerWidth > 900) {
         document.addEventListener("mousemove", (e) => {

@@ -1,2 +1,10 @@
-# ahmed-a-elngar.github.io
-Personal portfolio website showcasing Ahmed Elngar's work as a Backend Developer. Features 4+ years of experience in Laravel, PHP, ERP systems, real-time tracking platforms, and SaaS products.
+🚀 Ahmed Elngar | Backend Developer Portfolio
+
+A modern, responsive portfolio website highlighting backend development expertise including:
+- ERP system architecture (iDara, Awazel)
+- ZATCA invoice compliance integration
+- Real-time vehicle tracking platforms
+- SaaS product development
+- REST API design and implementation
+
+Built with HTML5, CSS3, and JavaScript. Features dark/light mode, smooth animations, and responsive design.

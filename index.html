@@ -14,7 +14,7 @@
       name="keywords"
       content="Backend Developer, Laravel, PHP, MySQL, ERP, Jeddah, Saudi Arabia, Ahmed Elngar"
     />
-    <meta name="author" content="Ahmed Elngar" />
+    <meta name="author" content="Ahmed Abdelaziz Elngar" />
     <meta name="robots" content="index, follow" />
     <title>Ahmed Elngar — Backend Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,24 +44,18 @@
         --muted: #a0a0bc;
         --dim: #5a5a72;
         --nav-bg: rgba(5, 5, 12, 0.8);
-        --hero-glow1: rgba(39, 114, 219, 0.06);
-        --hero-glow2: rgba(90, 158, 255, 0.05);
         --tag-bg: rgba(39, 114, 219, 0.08);
-        --tag-border: rgba(39, 114, 219, 0.25);
-        --project-shine: linear-gradient(
-          135deg,
-          rgba(39, 114, 219, 0.04),
-          transparent
-        );
         --badge-full-bg: rgba(39, 114, 219, 0.12);
         --badge-full-color: #2772db;
         --badge-part-bg: rgba(90, 158, 255, 0.1);
         --badge-part-color: #5a9eff;
-        --edu-bg: rgba(39, 114, 219, 0.06);
-        --edu-border: rgba(39, 114, 219, 0.15);
         --toggle-bg: #11111c;
         --scroll-bar: #2772db;
         --glow-accent: 0 0 12px rgba(39, 114, 219, 0.25);
+        --hero-glow1: rgba(39, 114, 219, 0.06);
+        --hero-glow2: rgba(90, 158, 255, 0.05);
+        --tag-border: rgba(39, 114, 219, 0.25);
+        --edu-bg: rgba(39, 114, 219, 0.06);
       }
 
       :root[data-theme="light"] {
@@ -79,23 +73,22 @@
         --muted: #5a5a5a;
         --dim: #9e9e9e;
         --nav-bg: rgba(250, 248, 245, 0.85);
-        --hero-glow1: rgba(39, 114, 219, 0.04);
-        --hero-glow2: rgba(59, 130, 246, 0.03);
         --tag-bg: rgba(39, 114, 219, 0.06);
-        --tag-border: rgba(39, 114, 219, 0.15);
         --badge-full-bg: rgba(39, 114, 219, 0.08);
         --badge-full-color: #2772db;
         --badge-part-bg: rgba(59, 130, 246, 0.06);
         --badge-part-color: #3b82f6;
-        --edu-bg: rgba(39, 114, 219, 0.04);
         --toggle-bg: #ffffff;
         --glow-accent: 0 6px 16px rgba(39, 114, 219, 0.1);
+        --hero-glow1: rgba(39, 114, 219, 0.04);
+        --hero-glow2: rgba(59, 130, 246, 0.03);
+        --tag-border: rgba(39, 114, 219, 0.15);
+        --edu-bg: rgba(39, 114, 219, 0.04);
       }
 
       html {
         scroll-behavior: smooth;
       }
-
       body {
         background: var(--bg);
         color: var(--text);
@@ -107,7 +100,6 @@
           background 0.3s,
           color 0.3s;
       }
-
       ::-webkit-scrollbar {
         width: 5px;
       }
@@ -132,7 +124,6 @@
         background-repeat: repeat;
         mix-blend-mode: overlay;
       }
-
       .cursor {
         position: fixed;
         width: 8px;
@@ -144,8 +135,7 @@
         transform: translate(-50%, -50%);
         transition:
           width 0.2s ease,
-          height 0.2s ease,
-          opacity 0.15s;
+          height 0.2s ease;
         display: none;
       }
       @media (min-width: 900px) {
@@ -153,7 +143,6 @@
           display: block;
         }
       }
-
       .theme-toggle {
         position: fixed;
         bottom: 1.8rem;
@@ -177,7 +166,6 @@
         transform: scale(1.08);
         border-color: var(--accent);
       }
-
       nav {
         position: fixed;
         top: 0;
@@ -219,7 +207,7 @@
         color: var(--accent);
       }
 
-      /* hero with photo layout */
+      /* Hero Section */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -413,7 +401,6 @@
         letter-spacing: 0.1em;
         margin-top: 4px;
       }
-
       @media (max-width: 860px) {
         .hero-inner {
           flex-direction: column-reverse;
@@ -440,6 +427,7 @@
         }
       }
 
+      /* Sections */
       section {
         padding: 5rem 2rem;
         max-width: 1200px;
@@ -466,6 +454,38 @@
         font-size: 0.9rem;
       }
 
+      /* Filter Buttons */
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-bottom: 2.5rem;
+      }
+      .filter-btn {
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        padding: 8px 20px;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: "DM Mono", monospace;
+      }
+      .filter-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .filter-btn.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+        box-shadow: 0 2px 10px var(--accent-glow);
+      }
+
+      /* Skills */
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -517,6 +537,7 @@
         background: var(--border);
       }
 
+      /* Experience */
       .exp-list {
         display: flex;
         flex-direction: column;
@@ -579,9 +600,10 @@
         color: var(--badge-part-color);
       }
 
+      /* Projects Grid */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 1.2rem;
       }
       .project-card {
@@ -589,20 +611,40 @@
         border-radius: 20px;
         padding: 1.4rem;
         border: 1px solid var(--border);
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
         gap: 0.7rem;
+        opacity: 1;
+        transform: scale(1);
+      }
+      .project-card.hide {
+        display: none;
       }
       .project-card:hover {
         border-color: var(--accent);
-        transform: translateY(-3px);
+        transform: translateY(-4px);
+      }
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
       }
       .project-company {
         font-size: 10px;
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: var(--dim);
+      }
+      .project-year {
+        font-size: 10px;
+        font-family: "DM Mono", monospace;
+        background: var(--accent-dim);
+        padding: 2px 8px;
+        border-radius: 20px;
+        color: var(--accent);
       }
       .project-name {
         font-family: "Syne", sans-serif;
@@ -628,6 +670,32 @@
         background: var(--accent-dim);
         color: var(--accent);
       }
+      .project-category {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 9px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        width: fit-content;
+      }
+      .project-category.fulltime {
+        background: rgba(39, 114, 219, 0.15);
+        color: #2772db;
+        border-color: rgba(39, 114, 219, 0.3);
+      }
+      .project-category.freelance {
+        background: rgba(90, 158, 255, 0.12);
+        color: #5a9eff;
+        border-color: rgba(90, 158, 255, 0.25);
+      }
+      .project-category.personal {
+        background: rgba(59, 130, 246, 0.1);
+        color: #3b82f6;
+        border-color: rgba(59, 130, 246, 0.2);
+      }
       .project-url {
         font-size: 11px;
         color: var(--accent);
@@ -641,7 +709,18 @@
         gap: 8px;
         text-decoration: underline;
       }
+      .coming-soon {
+        background: var(--accent-dim);
+        color: var(--accent);
+        font-size: 10px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-top: 6px;
+        text-align: center;
+      }
 
+      /* Education & Contact */
       .edu-card {
         background: var(--card);
         border-radius: 24px;
@@ -698,7 +777,6 @@
         color: var(--muted);
         margin-top: 4px;
       }
-
       .contact-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -741,7 +819,6 @@
         margin-top: 2px;
         word-break: break-all;
       }
-
       footer {
         text-align: center;
         padding: 1.8rem;
@@ -749,7 +826,6 @@
         font-size: 11px;
         color: var(--dim);
       }
-
       .reveal {
         opacity: 0;
         transform: translateY(20px);
@@ -761,7 +837,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
       @media (max-width: 760px) {
         nav {
           padding: 0.8rem 1.2rem;
@@ -849,7 +924,7 @@
               id="profilePhoto"
               onerror="
                 this.src =
-                  'https://placehold.co/400x400/1a1a2e/2772db?text=📸+Photo'
+                  'https://placehold.co/400x400/1a1a2e/2772db?text=Ahmed+Elngar'
               "
             />
           </div>
@@ -892,6 +967,18 @@
           <span class="skill-name">SonarQube</span>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
+        <div class="skill-chip reveal" data-level="82">
+          <span class="skill-name">Node.js</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-chip reveal d1" data-level="82">
+          <span class="skill-name">Java</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-chip reveal d2" data-level="65">
+          <span class="skill-name">Flutter</span>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
       </div>
       <div class="skills-sep reveal">familiar with</div>
       <div class="skills-grid">
@@ -899,24 +986,12 @@
           <span class="skill-name">AWS</span>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
-        <div class="skill-chip familiar reveal d1" data-level="50">
-          <span class="skill-name">Flutter</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip familiar reveal d2" data-level="45">
+        <div class="skill-chip familiar reveal d1" data-level="45">
           <span class="skill-name">Python</span>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
-        <div class="skill-chip familiar reveal d3" data-level="48">
+        <div class="skill-chip familiar reveal d2" data-level="48">
           <span class="skill-name">Android</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal" data-level="82">
-          <span class="skill-name">Node.js</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d1" data-level="82">
-          <span class="skill-name">Java</span>
           <div class="skill-bar"><div class="skill-fill"></div></div>
         </div>
       </div>
@@ -936,8 +1011,8 @@
             <span class="badge badge-full">● Full-time</span>
             <div class="exp-desc">
               Leading backend development for ERP suite, ZATCA invoice sync,
-              real-time vehicle tracking, Umra management, and digital signing
-              platform. Laravel, PHP 8, MySQL, Node.js, AWS.
+              real-time vehicle tracking, Umra management, digital signing
+              platform, and Trips Manager. Laravel, PHP 8, MySQL, Node.js, AWS.
             </div>
           </div>
           <div class="exp-period">Sep 2023 — Present</div>
@@ -976,10 +1051,30 @@
       <h2 class="section-title">Featured Projects</h2>
       <p class="section-sub reveal">
         Production systems I've built and maintained.
+        <span style="color: var(--accent)">Filter by type ↓</span>
       </p>
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="project-company">Idara.net</div>
+
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">
+          📁 All Projects
+        </button>
+        <button class="filter-btn" data-filter="fulltime">
+          🏢 Full-time (Idara/AlBadr)
+        </button>
+        <button class="filter-btn" data-filter="freelance">
+          💼 Freelance & Part-time
+        </button>
+        <button class="filter-btn" data-filter="personal">⚡ Personal</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- ===== FULL-TIME PROJECTS (Idara.net & AlBadr) ===== -->
+        <div class="project-card reveal" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">Idara.net</div>
+            <div class="project-year">2023-2026</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
           <div class="project-name">iDara ERP</div>
           <div class="project-desc">
             Core ERP platform managing customers, stores, invoices, employees.
@@ -993,9 +1088,13 @@
             >↗ idara.net</a
           >
         </div>
-        <div class="project-card reveal d1">
-          <div class="project-company">Idara.net</div>
-          <div class="project-name">Fatoora</div>
+        <div class="project-card reveal d1" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">Idara.net</div>
+            <div class="project-year">2024</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
+          <div class="project-name">Fatoora (ZATCA)</div>
           <div class="project-desc">
             ZATCA invoice synchronization platform, real-time submission and
             compliance reporting.
@@ -1008,8 +1107,12 @@
             >↗ fatoora.idara.sa</a
           >
         </div>
-        <div class="project-card reveal d2">
-          <div class="project-company">Idara.net</div>
+        <div class="project-card reveal d2" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">Idara.net</div>
+            <div class="project-year">2023-2026</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
           <div class="project-name">Vehicle Tracking</div>
           <div class="project-desc">
             Real-time tracking with WASL sync, live dashboard, Node.js handling
@@ -1026,8 +1129,12 @@
             >↗ tracking.idara.net</a
           >
         </div>
-        <div class="project-card reveal">
-          <div class="project-company">Idara.net</div>
+        <div class="project-card reveal" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">Idara.net</div>
+            <div class="project-year">2023-2026</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
           <div class="project-name">Umra.net</div>
           <div class="project-desc">
             Pilgrimage management ERP, logistics, hotel bookings, scheduling on
@@ -1041,8 +1148,50 @@
             >↗ umra.net</a
           >
         </div>
-        <div class="project-card reveal d1">
-          <div class="project-company">AlBadr</div>
+        <div class="project-card reveal d1" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">Idara.net</div>
+            <div class="project-year">2026</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
+          <div class="project-name">iDare-esign</div>
+          <div class="project-desc">
+            Digital document signing platform — secure, trackable, launching
+            soon.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">PHP</span
+            ><span class="tag">Bootstrap</span>
+          </div>
+          <a href="https://sign.idara.sa" target="_blank" class="project-url"
+            >↗ sign.idara.sa</a
+          >
+        </div>
+        <div class="project-card reveal d2" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">Idara.net</div>
+            <div class="project-year">2024-2026</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
+          <div class="project-name">Trips Manager</div>
+          <div class="project-desc">
+            Web platform + Android companion app for scheduling and managing
+            trip details. PHP backend + Android Java client.
+          </div>
+          <div class="project-tags">
+            <span class="tag">PHP</span><span class="tag">Android</span
+            ><span class="tag">Java</span>
+          </div>
+          <a href="https://trip.idara.net" target="_blank" class="project-url"
+            >↗ trip.idara.net</a
+          >
+        </div>
+        <div class="project-card reveal" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">AlBadr</div>
+            <div class="project-year">2022</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
           <div class="project-name">AlBadr For Sales</div>
           <div class="project-desc">
             Full POS system with invoicing, product management, financial
@@ -1053,8 +1202,12 @@
             ><span class="tag">SonarQube</span>
           </div>
         </div>
-        <div class="project-card reveal d2">
-          <div class="project-company">AlBadr</div>
+        <div class="project-card reveal d1" data-category="fulltime">
+          <div class="project-header">
+            <div class="project-company">AlBadr</div>
+            <div class="project-year">2022</div>
+          </div>
+          <div class="project-category fulltime">🏢 Full-time</div>
           <div class="project-name">Awazel</div>
           <div class="project-desc">
             Construction ERP covering contracts, supply tracking, cost
@@ -1065,43 +1218,109 @@
             ><span class="tag">DataTables</span>
           </div>
         </div>
-        <div class="project-card reveal">
-          <div class="project-company">Freelance</div>
-          <div class="project-name">BASMAT AQAR</div>
+
+        <!-- ===== FREELANCE & PART-TIME PROJECTS ===== -->
+        <div class="project-card reveal d2" data-category="freelance">
+          <div class="project-header">
+            <div class="project-company">We2up</div>
+            <div class="project-year">2023</div>
+          </div>
+          <div class="project-category freelance">💼 Part-time</div>
+          <div class="project-name">We2up ERP</div>
           <div class="project-desc">
-            Property Finder Platform — A comprehensive real estate marketplace
-            to find, list, and sell properties with ease and security.
+            Clinic & store management ERP covering employees, partners,
+            products, income tracking with full admin dashboard.
           </div>
           <div class="project-tags">
-            <span class="tag">Laravel</span><span class="tag">Realtime</span
+            <span class="tag">Laravel</span><span class="tag">PHP</span
+            ><span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="freelance">
+          <div class="project-header">
+            <div class="project-company">Freelance</div>
+            <div class="project-year">2026</div>
+          </div>
+          <div class="project-category freelance">💼 Freelance</div>
+          <div class="project-name">BASMAT AQAR</div>
+          <div class="project-desc">
+            Property Finder Platform — comprehensive real estate marketplace to
+            find, list, and sell properties.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">Real Estate</span
             ><span class="tag">SaaS</span>
           </div>
           <a href="https://basmat-aqar.com/" target="_blank" class="project-url"
-            >↗ BASMAT AQAR</a
+            >↗ basmat-aqar.com</a
           >
         </div>
-        <div class="project-card reveal">
-          <div class="project-company">Freelance</div>
+        <div class="project-card reveal d1" data-category="freelance">
+          <div class="project-header">
+            <div class="project-company">Freelance</div>
+            <div class="project-year">2023</div>
+          </div>
+          <div class="project-category freelance">💼 Freelance</div>
           <div class="project-name">Amwaj</div>
           <div class="project-desc">
             SaaS restaurant menu platform, real-time order management,
-            multi-tenant.
+            multi-tenant architecture.
           </div>
           <div class="project-tags">
             <span class="tag">Laravel</span><span class="tag">Tailwind</span
             ><span class="tag">SaaS</span>
           </div>
         </div>
-        <div class="project-card reveal d1">
-          <div class="project-company">Freelance</div>
-          <div class="project-name">Pie OCR API</div>
+        <div class="project-card reveal d2" data-category="freelance">
+          <div class="project-header">
+            <div class="project-company">Freelance</div>
+            <div class="project-year">2023</div>
+          </div>
+          <div class="project-category freelance">💼 Freelance</div>
+          <div class="project-name">Highdam</div>
           <div class="project-desc">
-            REST API using Tesseract OCR to extract data from IDs and licenses.
+            Car dealership ERP for vehicle buying/selling, profit calculation,
+            client management.
           </div>
           <div class="project-tags">
-            <span class="tag">Laravel</span><span class="tag">OCR</span
-            ><span class="tag">REST</span>
+            <span class="tag">Laravel</span><span class="tag">MySQL</span
+            ><span class="tag">DataTables</span>
           </div>
+        </div>
+        <div class="project-card reveal" data-category="freelance">
+          <div class="project-header">
+            <div class="project-company">Freelance</div>
+            <div class="project-year">2023</div>
+          </div>
+          <div class="project-category freelance">💼 Freelance</div>
+          <div class="project-name">Pie OCR API</div>
+          <div class="project-desc">
+            REST API using Tesseract OCR to extract structured data from IDs and
+            licenses.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">Tesseract</span
+            ><span class="tag">OCR</span>
+          </div>
+        </div>
+
+        <!-- ===== PERSONAL PROJECTS ===== -->
+        <div class="project-card reveal d1" data-category="personal">
+          <div class="project-header">
+            <div class="project-company">Personal</div>
+            <div class="project-year">2026</div>
+          </div>
+          <div class="project-category personal">⚡ Personal</div>
+          <div class="project-name">Kassemha</div>
+          <div class="project-desc">
+            Flutter mobile app that helps people split expenses, track shared
+            costs, and manage group payments easily.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Flutter</span><span class="tag">Dart</span
+            ><span class="tag">Mobile App</span>
+          </div>
+          <div class="coming-soon">🚀 Coming Soon</div>
         </div>
       </div>
     </section>
@@ -1175,7 +1394,9 @@
     </section>
 
     <footer>
-      <p>Ahmed Elngar · Backend Developer · Jeddah, Saudi Arabia · 2025</p>
+      <p>
+        Ahmed Abdelaziz Elngar · Backend Developer · Jeddah, Saudi Arabia · 2025
+      </p>
     </footer>
 
     <script>
@@ -1211,6 +1432,28 @@
         .querySelectorAll(".reveal, .skill-chip")
         .forEach((el) => observer.observe(el));
 
+      // Project Filter
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filterValue = btn.getAttribute("data-filter");
+          projectCards.forEach((card) => {
+            if (
+              filterValue === "all" ||
+              card.getAttribute("data-category") === filterValue
+            ) {
+              card.classList.remove("hide");
+            } else {
+              card.classList.add("hide");
+            }
+          });
+        });
+      });
+
       const cursor = document.getElementById("cursor");
       if (cursor && window.innerWidth > 900) {
         document.addEventListener("mousemove", (e) => {
@@ -1218,7 +1461,7 @@
           cursor.style.top = e.clientY + "px";
         });
         const interactives = document.querySelectorAll(
-          "a, button, .project-card, .skill-chip, .contact-item, .exp-card, .btn-primary",
+          "a, button, .project-card, .skill-chip, .contact-item, .exp-card, .btn-primary, .filter-btn",
         );
         interactives.forEach((el) => {
           el.addEventListener("mouseenter", () => {
@@ -1236,19 +1479,15 @@
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Ahmed Elngar",
+        "name": "Ahmed Abdelaziz Elngar",
         "jobTitle": "Backend Developer",
         "email": "AhmedAbdElazizElngar@gmail.com",
         "telephone": "+966534501096",
-        "url": "https://your-github-username.github.io/repo-name/",
         "sameAs": [
           "https://linkedin.com/in/ahmed-a-elngar",
           "https://github.com/ahmed-a-elngar"
         ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Idara.net"
-        }
+        "worksFor": { "@type": "Organization", "name": "Idara.net" }
       }
     </script>
   </body>

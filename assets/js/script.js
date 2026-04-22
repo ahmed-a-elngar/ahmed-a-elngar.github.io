@@ -139,6 +139,32 @@ if (cursor && window.innerWidth > 900) {
   });
 }
 
+// QR Modal Logic
+const qrToggle = document.getElementById("qrToggle");
+const qrModal = document.getElementById("qrModal");
+const qrClose = document.getElementById("qrClose");
+const qrImage = document.getElementById("qrImage");
+
+if (qrToggle && qrModal && qrClose) {
+  const qrUrl = "assets/contact-qr.png";
+
+  qrToggle.addEventListener("click", () => {
+    // Load static image once
+    if (!qrImage.getAttribute("src")) {
+      qrImage.src = qrUrl;
+    }
+    qrModal.classList.add("active");
+  });
+
+  qrClose.addEventListener("click", () => {
+    qrModal.classList.remove("active");
+  });
+
+  qrModal.addEventListener("click", (e) => {
+    if (e.target === qrModal) qrModal.classList.remove("active");
+  });
+}
+
 // Initialize Lucide Icons
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof lucide !== "undefined") {

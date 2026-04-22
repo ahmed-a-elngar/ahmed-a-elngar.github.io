@@ -48,9 +48,29 @@
     <div class="cursor" id="cursor"></div>
     <div class="grain"></div>
     <button class="theme-toggle" id="themeToggle">🌙</button>
+    <button class="qr-toggle" id="qrToggle" aria-label="Digital Contact">
+      <i data-lucide="qr-code"></i>
+    </button>
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       ↑
     </button>
+
+    <!-- QR Modal -->
+    <div class="qr-modal" id="qrModal">
+      <div class="qr-card">
+        <div class="qr-img-wrapper">
+          <img
+            id="qrImage"
+            src=""
+            alt="Contact QR Code"
+            style="width: 200px; height: 200px"
+          />
+        </div>
+        <h3>Ahmed Elngar</h3>
+        <p>Scan to save my contact info</p>
+        <button class="qr-close" id="qrClose">Close</button>
+      </div>
+    </div>
 
     <nav>
       <a href="#" class="nav-logo"
@@ -105,7 +125,7 @@
         <div class="hero-photo">
           <div class="photo-frame">
             <img
-              src="assets/Aamed AbdElaziz sp.jpg"
+              src="assets/Ahmed AbdElaziz sp.jpg"
               alt="Ahmed Elngar"
               id="profilePhoto"
               loading="eager"
@@ -536,7 +556,7 @@
           </div>
           <div class="enterprise-badge">
             <i data-lucide="code-2" style="width: 10px; height: 10px"></i>
-            Microservice API
+            Private API
           </div>
         </div>
         <!-- Personal Projects -->

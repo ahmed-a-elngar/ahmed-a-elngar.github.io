@@ -161,15 +161,103 @@ svg[data-lucide] {
   box-shadow: var(--glow-accent);
   transition: all 0.2s ease;
 }
-.theme-toggle:hover {
+.qr-toggle {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.8rem;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  box-shadow: var(--glow-accent);
+  transition: all 0.2s ease;
+}
+.theme-toggle:hover,
+.qr-toggle:hover {
   transform: scale(1.08);
   border-color: var(--accent);
+}
+
+/* QR Modal */
+.qr-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.qr-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.qr-card {
+  background: var(--card);
+  padding: 2.5rem;
+  border-radius: 32px;
+  border: 1px solid var(--border2);
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.qr-modal.active .qr-card {
+  transform: translateY(0);
+}
+.qr-img-wrapper {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+.qr-card h3 {
+  font-family: "Syne", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.qr-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.qr-close {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.qr-close:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 5rem;
+  bottom: 9.2rem;
   right: 1.8rem;
   width: 44px;
   height: 44px;

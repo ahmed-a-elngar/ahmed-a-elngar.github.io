@@ -1,0 +1,11 @@
+# Backend logic & local tools
+backend/
+composer.json
+composer.lock
+vendor/
+
+# Others
+node_modules/
+.DS_Store
+Thumbs.db
+scratch/

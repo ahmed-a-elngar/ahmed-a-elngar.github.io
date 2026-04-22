@@ -1,0 +1,17 @@
+{
+  "name": "Ahmed Elngar | Backend Architect",
+  "short_name": "Ahmed Elngar",
+  "description": "Portfolio of Ahmed Abdelaziz Elngar, Backend Developer specializing in Laravel and SaaS architectures.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#05050c",
+  "theme_color": "#2772db",
+  "icons": [
+    {
+      "src": "assets/profile.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

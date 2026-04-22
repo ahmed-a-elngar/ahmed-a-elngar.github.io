@@ -171,3 +171,13 @@ document.addEventListener("DOMContentLoaded", () => {
     lucide.createIcons();
   }
 });
+
+// Service Worker Registration for PWA
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("sw.js")
+      .then((reg) => console.log("SW Registered"))
+      .catch((err) => console.log("SW Failed", err));
+  });
+}

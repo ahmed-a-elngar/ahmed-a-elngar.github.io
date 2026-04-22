@@ -20,7 +20,36 @@
     />
     <meta name="author" content="Ahmed Abdelaziz Elngar" />
     <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ahmed-a-elngar.github.io/" />
+    <meta property="og:title" content="Ahmed Elngar — Backend Architect" />
+    <meta
+      property="og:description"
+      content="Backend Developer specializing in Laravel, PHP, and high-performance SaaS architectures."
+    />
+    <meta
+      property="og:image"
+      content="https://ahmed-a-elngar.github.io/assets/profile.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ahmed-a-elngar.github.io/" />
+    <meta property="twitter:title" content="Ahmed Elngar — Backend Architect" />
+    <meta
+      property="twitter:description"
+      content="Backend Developer specializing in Laravel, PHP, and high-performance SaaS architectures."
+    />
+    <meta
+      property="twitter:image"
+      content="https://ahmed-a-elngar.github.io/assets/profile.png"
+    />
     <title>Ahmed Elngar — Backend Architect</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="assets/profile.png" />
+    <meta name="theme-color" content="#2772db" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -67,8 +96,15 @@
           />
         </div>
         <h3>Ahmed Elngar</h3>
-        <p>Scan to save my contact info</p>
-        <button class="qr-close" id="qrClose">Close</button>
+        <p>Backend Architect</p>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <a href="assets/contact.vcf" download="Ahmed_Elngar.vcf" class="qr-close" style="text-decoration: none; display: inline-block;">
+            <i data-lucide="download" style="width: 14px; height: 14px; margin-right: 5px;"></i> Save Contact
+          </a>
+          <button class="qr-close" id="qrClose" style="background: transparent; color: var(--muted); border: 1px solid var(--border2);">
+            Close
+          </button>
+        </div>
       </div>
     </div>
 

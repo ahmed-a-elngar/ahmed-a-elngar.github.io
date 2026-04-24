@@ -75,6 +75,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   background: var(--bg);
@@ -1035,23 +1036,38 @@ footer {
     text-align: left;
     margin-top: 8px;
   }
+  .hero-content {
+    min-width: unset;
+    width: 100%;
+  }
   .projects-grid {
     grid-template-columns: 1fr;
   }
   .back-to-top {
-    bottom: 9.2rem;
-    right: 1.2rem;
+    bottom: 6.8rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
   }
   .qr-toggle {
-    bottom: 5.5rem;
-    right: 1.2rem;
+    bottom: 3.9rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
   }
   .theme-toggle {
-    bottom: 1.8rem;
-    right: 1.2rem;
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
   .edu-card {
     flex-direction: column;
+    padding: 1.5rem;
+  }
+  .qr-card {
     padding: 1.5rem;
   }
   .photo-frame {

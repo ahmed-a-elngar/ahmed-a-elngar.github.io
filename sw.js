@@ -5,7 +5,8 @@ const ASSETS = [
   '/assets/css/style.css',
   '/assets/js/script.js',
   '/assets/profile.png',
-  '/assets/contact-qr.png'
+  '/assets/contact-qr.png',
+  '/assets/contact.vcf'
 ];
 
 self.addEventListener('install', (event) => {

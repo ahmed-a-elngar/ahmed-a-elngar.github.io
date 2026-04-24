@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Ahmed Elngar
+N:Elngar;Ahmed;;;
+TITLE:Backend Architect & Senior Developer
+ORG:Idara.net
+TEL;TYPE=CELL,VOICE:0534501096
+EMAIL;TYPE=PREF,INTERNET:AhmedAbdElazizElngar@gmail.com
+URL:https://ahmed-a-elngar.github.io/
+URL;TYPE=LinkedIn:https://linkedin.com/in/ahmed-a-elngar
+URL;TYPE=GitHub:https://github.com/ahmed-a-elngar
+END:VCARD

@@ -514,6 +514,7 @@ h1.hero-name {
   gap: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
+  flex-wrap: wrap;
 }
 .stat-num {
   font-family: "Syne", sans-serif;
@@ -1038,8 +1039,24 @@ footer {
     grid-template-columns: 1fr;
   }
   .back-to-top {
+    bottom: 9.2rem;
+    right: 1.2rem;
+  }
+  .qr-toggle {
+    bottom: 5.5rem;
+    right: 1.2rem;
+  }
+  .theme-toggle {
     bottom: 1.8rem;
     right: 1.2rem;
+  }
+  .edu-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .photo-frame {
+    width: 180px;
+    height: 180px;
   }
   .grain {
     opacity: 0.005;

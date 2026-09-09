@@ -1,5 +1,5 @@
 // Bump CACHE_VERSION on every deploy that changes a precached asset.
-const CACHE_VERSION = 'v6';
+const CACHE_VERSION = 'v7';
 const CACHE_NAME = `ahmed-elngar-${CACHE_VERSION}`;
 const OFFLINE_URL = '/index.html';
 

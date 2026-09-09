@@ -813,6 +813,22 @@ section {
   border-left: 1px solid var(--border2);
   padding-left: 6px;
 }
+/* The full link row stops fitting well before the mobile breakpoint, so let it
+   scroll from 900px down rather than overflowing the bar. */
+@media (max-width: 900px) {
+  .nav-links {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-links a {
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 760px) {
   .expertise-grid {
     grid-template-columns: 1fr;

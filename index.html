@@ -12,13 +12,13 @@
     />
     <meta
       name="description"
-      content="Portfolio of Ahmed A Elngar (Ahmed Abdelaziz Mohamed Elngar) - Backend Architect & Senior Developer. Specialized in Laravel, PHP, and high-performance SaaS solutions. Explore my projects and contact me for collaborations."
+      content="Portfolio of Ahmed A Elngar (Ahmed Abdelaziz Mohamed Elngar) - Backend Architect &amp; Senior Developer. Specialized in Laravel, PHP, and high-performance SaaS solutions. Explore my projects and contact me for collaborations."
     />
     <meta
       name="keywords"
-      content="Ahmed Elngar, Ahmed A Elngar, Ahmed_A_Elngar, Ahmed-A-Elngar, Ahmed Abdelaziz, Ahmed Abdelaziz Elngar, Ahmed Abdelaziz Mohamed Elngar, ahmed abdelaiziz, Ahmed Abdelaziz PHP Developer, Ahmed Elngar Laravel Developer, Ahmed A Elngar Backend Developer, Ahmed Abdelaziz Mohamed Elngar Software Engineer, Backend Developer, Senior PHP Developer, Laravel Architect, Laravel Expert, PHP Developer Saudi Arabia, Backend Architect Jeddah, Full Stack Developer, Flutter Developer, ERP System Developer, SaaS Architect, MySQL Expert, Database Designer, REST API Specialist, Microservices, Real-time Tracking Systems, Logistics Software, Fintech Developer, Software Engineer, Clean Code, SOLID Principles, Redis, Docker, Git, API Integration, Egyptian Developer Saudi Arabia"
+      content="Ahmed Elngar, Ahmed A Elngar, Ahmed_A_Elngar, Ahmed-A-Elngar, Ahmed Abdelaziz, Ahmed Abdelaziz Elngar, Ahmed Abdelaziz Mohamed Elngar, ahmed abdelaiziz, Ahmed Abdelaziz PHP Developer, Ahmed Elngar Laravel Developer, Ahmed A Elngar Backend Developer, Ahmed Abdelaziz Mohamed Elngar Software Engineer, Backend Developer, Senior PHP Developer, Laravel Architect, Laravel Expert, PHP Developer Saudi Arabia, Backend Architect Jeddah, Full Stack Developer, Flutter Developer, ERP System Developer, SaaS Architect, MySQL Expert, Database Designer, REST API Specialist, Payment Gateway Integration, Noon Payments Integration, Bookeey Payment Gateway, HLS Video Streaming, Secure Video Delivery, ZATCA Integration, WASL Integration, Microservices, Real-time Tracking Systems, Logistics Software, Fintech Developer, Software Engineer, Clean Code, SOLID Principles, Redis, Docker, Git, API Integration, Egyptian Developer Saudi Arabia"
     />
-    <meta name="author" content="Ahmed Abdelaziz Elngar" />
+    <meta name="author" content="Ahmed Abdelaziz Mohamed Elngar" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
@@ -34,8 +34,16 @@
     />
     <meta
       property="og:image"
-      content="https://ahmed-a-elngar.github.io/assets/profile.png"
+      content="https://ahmed-a-elngar.github.io/assets/og-cover.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Ahmed Elngar — Backend Architect"
+    />
+    <meta property="og:site_name" content="Ahmed Elngar" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -50,12 +58,31 @@
     />
     <meta
       property="twitter:image"
-      content="https://ahmed-a-elngar.github.io/assets/profile.png"
+      content="https://ahmed-a-elngar.github.io/assets/og-cover.png"
+    />
+    <meta
+      property="twitter:image:alt"
+      content="Ahmed Elngar — Backend Architect"
     />
     <title>Ahmed Elngar — Backend Architect</title>
+    <link rel="canonical" href="https://ahmed-a-elngar.github.io/" />
     <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="assets/profile.png" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <meta name="theme-color" content="#2772db" />
+
+    <!-- Apply saved theme before first paint (prevents light-mode flash) -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.setAttribute(
+            "data-theme",
+            localStorage.getItem("theme") === "light" ? "light" : "dark",
+          );
+        } catch (e) {}
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -71,18 +98,23 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;display=swap"
       rel="stylesheet"
     />
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Lucide Icons (pinned; deferred so it never blocks first paint) -->
+    <script
+      defer
+      src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"
+    ></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="cursor" id="cursor"></div>
     <div class="grain"></div>
-    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+      🌙
+    </button>
     <button class="qr-toggle" id="qrToggle" aria-label="Digital Contact">
       <i data-lucide="qr-code"></i>
     </button>
@@ -101,7 +133,7 @@
             style="width: 200px; height: 200px"
           />
         </div>
-        <h3>Ahmed Elngar</h3>
+        <h3>Ahmed Abdelaziz Mohamed Elngar</h3>
         <p>Backend Architect</p>
         <div style="display: flex; flex-direction: column; gap: 10px">
           <a href="assets/contact.vcf" download="Ahmed_Elngar.vcf" class="qr-close" style="text-decoration: none; display: inline-block;">
@@ -120,6 +152,7 @@
       >
       <div class="nav-links">
         <a href="#skills">Skills</a>
+        <a href="#expertise">Expertise</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
@@ -141,9 +174,9 @@
             ><span class="name-last">Elngar</span>
           </h1>
           <p class="hero-desc">
-            Backend developer with 4+ years of experience building scalable ERP
+            Backend architect with 4+ years of experience building scalable ERP
             systems, real-time tracking platforms, and SaaS products.
-            Specialized in Laravel & PHP.
+            Specialized in Laravel &amp; PHP.
           </p>
           <div class="hero-btns">
             <a href="#projects" class="btn-primary">View work →</a
@@ -230,6 +263,74 @@
       </div>
     </section>
 
+    <section id="expertise">
+      <div class="section-tag">// capabilities</div>
+      <h2 class="section-title">Specialized Expertise</h2>
+      <p class="section-sub reveal">
+        Integration and product work that goes beyond standard CRUD.
+      </p>
+      <div class="expertise-grid">
+        <div class="expertise-card reveal">
+          <div class="expertise-icon"><i data-lucide="credit-card"></i></div>
+          <div class="expertise-title">Payment Gateway Integration</div>
+          <div class="expertise-desc">
+            End-to-end checkout flows against live payment providers — hosted
+            payment pages, webhook callbacks, status handling and transaction
+            reconciliation.
+          </div>
+          <div class="expertise-tags">
+            <span class="expertise-tag"
+              >Noon Payments <em>iDara Sign</em></span
+            ><span class="expertise-tag"
+              >Bookeey <em>Masahat Sukoon</em></span
+            >
+          </div>
+        </div>
+        <div class="expertise-card reveal d1">
+          <div class="expertise-icon"><i data-lucide="monitor-play"></i></div>
+          <div class="expertise-title">Secure Video Delivery</div>
+          <div class="expertise-desc">
+            Course video served as segmented HLS streams with protected
+            playback, so lessons play smoothly while staying private and
+            resistant to direct downloading.
+          </div>
+          <div class="expertise-tags">
+            <span class="expertise-tag"
+              >HLS Streaming <em>Masahat Sukoon</em></span
+            ><span class="expertise-tag">Download Protection</span>
+          </div>
+        </div>
+        <div class="expertise-card reveal d2">
+          <div class="expertise-icon"><i data-lucide="badge-check"></i></div>
+          <div class="expertise-title">Regulatory &amp; Fleet Integration</div>
+          <div class="expertise-desc">
+            Government-spec integrations built to strict schemas and running in
+            production — ZATCA e-invoice submission and WASL fleet
+            synchronization.
+          </div>
+          <div class="expertise-tags">
+            <span class="expertise-tag">ZATCA <em>Fatoora</em></span
+            ><span class="expertise-tag"
+              >WASL <em>Vehicle Tracking</em></span
+            >
+          </div>
+        </div>
+        <div class="expertise-card reveal">
+          <div class="expertise-icon"><i data-lucide="lightbulb"></i></div>
+          <div class="expertise-title">Product &amp; Business Direction</div>
+          <div class="expertise-desc">
+            Beyond delivery, I take an active role in shaping the business idea
+            itself — scoping features, pressure-testing requirements and turning
+            rough concepts into systems that hold up in production.
+          </div>
+          <div class="expertise-tags">
+            <span class="expertise-tag">Idara.net</span
+            ><span class="expertise-tag">Freelance Engagements</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="experience">
       <div class="section-tag">// career</div>
       <h2 class="section-title">Work Experience</h2>
@@ -256,7 +357,7 @@
             <div class="exp-role">Backend Developer</div>
             <span class="badge badge-part">◐ Part-time</span>
             <div class="exp-desc">
-              Built clinic & store management ERP covering employees, partners,
+              Built clinic &amp; store management ERP covering employees, partners,
               products, income tracking with full admin dashboard. Laravel +
               MySQL.
             </div>
@@ -405,14 +506,15 @@
             <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
             Full-time
           </div>
-          <div class="project-name">iDare-esign</div>
+          <div class="project-name">iDara Sign</div>
           <div class="project-desc">
-            Digital document signing platform — secure, trackable, launching
-            soon.
+            Digital document signing platform for secure, trackable
+            e-signatures.
           </div>
           <div class="project-tags">
             <span class="tag">Laravel</span><span class="tag">PHP</span
-            ><span class="tag">Bootstrap</span>
+            ><span class="tag">Bootstrap</span
+            ><span class="tag">Noon Payments</span>
           </div>
           <a href="https://sign.idara.sa" target="_blank" class="project-url"
             >↗ sign.idara.sa</a
@@ -498,7 +600,7 @@
           </div>
           <div class="project-name">We2up ERP</div>
           <div class="project-desc">
-            Clinic & store management ERP covering employees, partners,
+            Clinic &amp; store management ERP covering employees, partners,
             products, income tracking with full admin dashboard.
           </div>
           <div class="project-tags">
@@ -530,6 +632,32 @@
           </div>
           <a href="https://basmat-aqar.com/" target="_blank" class="project-url"
             >↗ basmat-aqar.com</a
+          >
+        </div>
+        <div class="project-card reveal d1" data-category="freelance">
+          <div class="project-header">
+            <div class="project-company">Freelance</div>
+            <div class="project-year">2026</div>
+          </div>
+          <div class="project-category freelance">
+            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            Freelance
+          </div>
+          <div class="project-name">Masahat Sukoon</div>
+          <div class="project-desc">
+            E-learning platform for Arabic courses and sessions, delivered both
+            live and recorded.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">Tailwind</span
+            ><span class="tag">E-Learning</span><span class="tag">Bookeey</span
+            ><span class="tag">HLS Video</span>
+          </div>
+          <a
+            href="https://masahatsukoon.com/"
+            target="_blank"
+            class="project-url"
+            >↗ masahatsukoon.com</a
           >
         </div>
         <div class="project-card reveal d1" data-category="freelance">
@@ -661,11 +789,17 @@
             <div class="contact-label">Email</div>
             <div class="contact-value">AhmedAbdElazizElngar@gmail.com</div>
           </div></a
-        ><a class="contact-item reveal d1" href="tel:0534501096"
+        ><a class="contact-item reveal d1" href="tel:+966534501096"
           ><div class="contact-icon"><i data-lucide="phone"></i></div>
           <div>
-            <div class="contact-label">Phone / WhatsApp</div>
-            <div class="contact-value">053 450 1096</div>
+            <div class="contact-label">Phone / WhatsApp · Saudi Arabia</div>
+            <div class="contact-value">+966 53 450 1096</div>
+          </div></a
+        ><a class="contact-item reveal" href="tel:+201018689353"
+          ><div class="contact-icon"><i data-lucide="phone"></i></div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp · Egypt</div>
+            <div class="contact-value">+20 101 868 9353</div>
           </div></a
         ><a
           class="contact-item reveal"
@@ -719,24 +853,50 @@
 
     <footer>
       <p>
-        Ahmed Abdelaziz Mohamed Elngar · Backend Developer · Jeddah, Saudi
+        Ahmed Abdelaziz Mohamed Elngar · Backend Architect · Jeddah, Saudi
         Arabia · 2026
       </p>
     </footer>
 
     <!-- Custom Scripts -->
-    <script src="assets/js/script.js"></script>
+    <script defer src="assets/js/script.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Ahmed Abdelaziz Elngar",
-        "jobTitle": "Backend Developer",
+        "name": "Ahmed Abdelaziz Mohamed Elngar",
+        "alternateName": ["Ahmed Elngar", "Ahmed A Elngar", "Ahmed Abdelaziz Elngar"],
+        "givenName": "Ahmed",
+        "additionalName": "Abdelaziz Mohamed",
+        "familyName": "Elngar",
+        "jobTitle": "Backend Architect",
         "email": "AhmedAbdElazizElngar@gmail.com",
-        "telephone": "+966534501096",
+        "telephone": ["+966534501096", "+201018689353"],
+        "url": "https://ahmed-a-elngar.github.io/",
+        "image": "https://ahmed-a-elngar.github.io/assets/profile.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jeddah",
+          "addressCountry": "SA"
+        },
         "sameAs": [
           "https://linkedin.com/in/ahmed-a-elngar",
           "https://github.com/ahmed-a-elngar"
+        ],
+        "knowsAbout": [
+          "Laravel",
+          "PHP",
+          "MySQL",
+          "REST API Design",
+          "Payment Gateway Integration",
+          "Noon Payments",
+          "Bookeey",
+          "HLS Video Streaming",
+          "Secure Video Delivery",
+          "ZATCA E-Invoicing",
+          "WASL Fleet Integration",
+          "SaaS Architecture",
+          "ERP Systems"
         ],
         "worksFor": { "@type": "Organization", "name": "Idara.net" }
       }

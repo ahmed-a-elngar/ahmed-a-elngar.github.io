@@ -1,12 +1,17 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Ahmed Elngar
-N:Elngar;Ahmed;;;
-TITLE:Backend Architect & Senior Developer
+N:Elngar;Ahmed;Abdelaziz Mohamed;
+FN:Ahmed Abdelaziz Mohamed Elngar
 ORG:Idara.net
-TEL;TYPE=CELL,VOICE:0534501096
-EMAIL;TYPE=PREF,INTERNET:AhmedAbdElazizElngar@gmail.com
-URL:https://ahmed-a-elngar.github.io/
+TITLE:Backend Architect
+TEL;TYPE=CELL,VOICE,PREF:+966534501096
+TEL;TYPE=CELL,VOICE:+201018689353
+EMAIL:AhmedAbdElazizElngar@gmail.com
+ADR;TYPE=WORK:;;;Jeddah;;;Saudi Arabia
+URL;TYPE=Website:https://ahmed-a-elngar.github.io
 URL;TYPE=LinkedIn:https://linkedin.com/in/ahmed-a-elngar
 URL;TYPE=GitHub:https://github.com/ahmed-a-elngar
+URL;TYPE=WhatsApp:https://wa.me/966534501096
+URL;TYPE=WhatsApp:https://wa.me/201018689353
+PHOTO;VALUE=URI:https://ahmed-a-elngar.github.io/assets/profile.png
 END:VCARD

@@ -1,15 +1,18 @@
 // Theme Toggle
+// The inline guard in <head> already applied the saved theme before first paint,
+// so read the current state off the element instead of re-deriving it here.
 const toggle = document.getElementById("themeToggle");
 const root = document.documentElement;
-let dark = localStorage.getItem("theme") !== "light";
-root.setAttribute("data-theme", dark ? "dark" : "light");
+let dark = root.getAttribute("data-theme") !== "light";
 toggle.textContent = dark ? "🌙" : "☀️";
 toggle.addEventListener("click", () => {
   dark = !dark;
   const t = dark ? "dark" : "light";
   root.setAttribute("data-theme", t);
   toggle.textContent = dark ? "🌙" : "☀️";
-  localStorage.setItem("theme", t);
+  try {
+    localStorage.setItem("theme", t);
+  } catch (e) {}
 });
 
 // Reveal Observer
@@ -83,13 +86,6 @@ updateFilterCounts();
 
 // Back to Top
 const backBtn = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backBtn.classList.add("visible");
-  } else {
-    backBtn.classList.remove("visible");
-  }
-});
 backBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
@@ -97,25 +93,43 @@ backBtn.addEventListener("click", () => {
 // Scroll Spy
 const sections = document.querySelectorAll("section, .hero");
 const navLinks = document.querySelectorAll(".nav-links a");
-window.addEventListener("scroll", () => {
+
+// One rAF-throttled scroll handler drives both the back-to-top button and the
+// scroll spy, so layout is read at most once per frame instead of per event.
+let scrollTicking = false;
+function onScroll() {
+  const y = window.scrollY;
+  backBtn.classList.toggle("visible", y > 300);
+
   let current = "";
   sections.forEach((section) => {
     const sectionTop = section.offsetTop - 100;
     const sectionBottom = sectionTop + section.offsetHeight;
-    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+    if (y >= sectionTop && y < sectionBottom) {
       current = section.getAttribute("id") || "hero";
     }
   });
   navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (
-      link.getAttribute("href") === `#${current}` ||
-      (current === "hero" && link.getAttribute("href") === "#")
-    ) {
-      link.classList.add("active");
-    }
+    const href = link.getAttribute("href");
+    link.classList.toggle(
+      "active",
+      href === `#${current}` || (current === "hero" && href === "#"),
+    );
   });
-});
+
+  scrollTicking = false;
+}
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(onScroll);
+    }
+  },
+  { passive: true },
+);
+onScroll();
 
 // Cursor
 const cursor = document.getElementById("cursor");

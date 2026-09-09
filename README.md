@@ -1,4 +1,4 @@
-🚀 Ahmed Elngar | Backend Developer Portfolio
+🚀 Ahmed Elngar | Backend Architect Portfolio
 
 A modern, responsive portfolio website highlighting backend development expertise including:
 - ERP system architecture (iDara, Awazel)

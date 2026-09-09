@@ -12,7 +12,7 @@
     />
     <meta
       name="description"
-      content="Portfolio of Ahmed A Elngar (Ahmed Abdelaziz Mohamed Elngar) - Backend Architect &amp; Senior Developer. Specialized in Laravel, PHP, and high-performance SaaS solutions. Explore my projects and contact me for collaborations."
+      content="Ahmed Abdelaziz Mohamed Elngar — Backend Architect in Jeddah. Laravel &amp; PHP ERP systems, SaaS platforms, ZATCA e-invoicing and payment gateway integrations."
     />
     <meta
       name="keywords"
@@ -64,7 +64,7 @@
       property="twitter:image:alt"
       content="Ahmed Elngar — Backend Architect"
     />
-    <title>Ahmed Elngar — Backend Architect</title>
+    <title>Ahmed Elngar — Backend Architect &amp; Laravel Developer</title>
     <link rel="canonical" href="https://ahmed-a-elngar.github.io/" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -97,6 +97,8 @@
       gtag("config", "G-PBTSXBCGWF");
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="assets/Ahmed AbdElaziz sp.jpg" fetchpriority="high" />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;display=swap"
       rel="stylesheet"
@@ -133,7 +135,7 @@
             style="width: 200px; height: 200px"
           />
         </div>
-        <h3>Ahmed Abdelaziz Mohamed Elngar</h3>
+        <div class="qr-name">Ahmed Abdelaziz Mohamed Elngar</div>
         <p>Backend Architect</p>
         <div style="display: flex; flex-direction: column; gap: 10px">
           <a href="assets/contact.vcf" download="Ahmed_Elngar.vcf" class="qr-close" style="text-decoration: none; display: inline-block;">
@@ -146,21 +148,25 @@
       </div>
     </div>
 
-    <nav>
+    <header>
+      <nav>
       <a href="#" class="nav-logo"
         ><i data-lucide="zap" style="width: 18px; height: 18px"></i> AELNGAR</a
       >
       <div class="nav-links">
+        <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#expertise">Expertise</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </header>
 
-    <div class="hero">
+    <main>
+      <div class="hero">
       <div class="glow glow1"></div>
       <div class="glow glow2"></div>
       <div class="hero-inner">
@@ -171,7 +177,12 @@
           </div>
           <h1 class="hero-name">
             <span class="name-first">Ahmed</span
+            ><span class="visually-hidden"> Abdelaziz Mohamed </span
             ><span class="name-last">Elngar</span>
+            <span class="visually-hidden">
+              — Backend Architect and Laravel Developer in Jeddah, Saudi
+              Arabia</span
+            >
           </h1>
           <p class="hero-desc">
             Backend architect with 4+ years of experience building scalable ERP
@@ -201,7 +212,7 @@
           <div class="photo-frame">
             <img
               src="assets/Ahmed AbdElaziz sp.jpg"
-              alt="Ahmed Elngar"
+              alt="Ahmed Abdelaziz Mohamed Elngar, Backend Architect and Laravel developer based in Jeddah, Saudi Arabia"
               id="profilePhoto"
               loading="eager"
               onerror="
@@ -214,8 +225,55 @@
       </div>
     </div>
 
+    <section id="about">
+      <div class="section-tag">// about</div>
+      <h2 class="section-title">About Me</h2>
+      <div class="about-prose reveal">
+        <p class="lead">
+          I'm <strong>Ahmed Abdelaziz Mohamed Elngar</strong> — a backend
+          architect based in Jeddah, Saudi Arabia, working mainly in Laravel
+          and PHP.
+        </p>
+        <p>
+          Over the past four years I've built and maintained the kind of
+          systems businesses actually run on: ERP platforms handling customers,
+          inventory and invoicing; real-time vehicle tracking with live
+          dashboards and WASL synchronization; pilgrimage logistics for Umra
+          operators; and multi-tenant SaaS products serving several clients
+          from a single codebase.
+        </p>
+        <p>
+          A lot of that work lives at the integration layer, where things are
+          least forgiving. I've implemented <strong>ZATCA</strong> e-invoice
+          compliance for Saudi tax reporting, wired up payment gateways
+          including <strong>Noon Payments</strong> and <strong>Bookeey</strong>
+          end to end — checkout, callbacks and reconciliation — and delivered
+          course video over <strong>HLS</strong> with protected playback so
+          paid content stays paid.
+        </p>
+        <p>
+          Day to day I work across the whole backend: schema design in MySQL,
+          REST APIs consumed by both web and mobile clients, background jobs
+          and queues, and deployment on AWS. Code quality matters to me — at
+          AlBadr I worked under SonarQube quality gates, and I lean on clean,
+          maintainable architecture over clever shortcuts.
+        </p>
+        <p>
+          What I enjoy most is being involved before the first migration is
+          written. At Idara.net and across my freelance work I help shape the
+          business idea itself — scoping what should be built, questioning
+          requirements that won't survive contact with real users, and turning
+          rough concepts into systems that hold up in production.
+        </p>
+        <p>
+          I hold a B.Sc. in Computer Science from Mansoura University, and I'm
+          open to backend, architecture and consulting work.
+        </p>
+      </div>
+    </section>
+
     <section id="skills">
-      <div class="section-tag">// expertise</div>
+      <div class="section-tag">// stack</div>
       <h2 class="section-title">Tech Stack</h2>
       <p class="section-sub reveal">
         Core tools I use daily to build production-grade systems.
@@ -424,7 +482,7 @@
             <span class="tag">PHP8</span><span class="tag">MySQL</span
             ><span class="tag">AWS</span>
           </div>
-          <a href="https://idara.net" target="_blank" class="project-url"
+          <a href="https://idara.net" target="_blank" rel="noopener" class="project-url"
             >↗ idara.net</a
           >
         </div>
@@ -446,7 +504,7 @@
             <span class="tag">Laravel</span><span class="tag">PHP</span
             ><span class="tag">REST API</span>
           </div>
-          <a href="https://fatoora.idara.sa" target="_blank" class="project-url"
+          <a href="https://fatoora.idara.sa" target="_blank" rel="noopener" class="project-url"
             >↗ fatoora.idara.sa</a
           >
         </div>
@@ -470,7 +528,7 @@
           </div>
           <a
             href="https://tracking.idara.net"
-            target="_blank"
+            target="_blank" rel="noopener"
             class="project-url"
             >↗ tracking.idara.net</a
           >
@@ -493,7 +551,7 @@
             <span class="tag">PHP8</span><span class="tag">MySQL</span
             ><span class="tag">AWS</span>
           </div>
-          <a href="https://umra.net" target="_blank" class="project-url"
+          <a href="https://umra.net" target="_blank" rel="noopener" class="project-url"
             >↗ umra.net</a
           >
         </div>
@@ -516,7 +574,7 @@
             ><span class="tag">Bootstrap</span
             ><span class="tag">Noon Payments</span>
           </div>
-          <a href="https://sign.idara.sa" target="_blank" class="project-url"
+          <a href="https://sign.idara.sa" target="_blank" rel="noopener" class="project-url"
             >↗ sign.idara.sa</a
           >
         </div>
@@ -538,7 +596,7 @@
             <span class="tag">PHP</span><span class="tag">Android</span
             ><span class="tag">Java</span>
           </div>
-          <a href="https://trip.idara.net" target="_blank" class="project-url"
+          <a href="https://trip.idara.net" target="_blank" rel="noopener" class="project-url"
             >↗ trip.idara.net</a
           >
         </div>
@@ -630,7 +688,7 @@
             <span class="tag">Laravel</span><span class="tag">Real Estate</span
             ><span class="tag">SaaS</span>
           </div>
-          <a href="https://basmat-aqar.com/" target="_blank" class="project-url"
+          <a href="https://basmat-aqar.com/" target="_blank" rel="noopener" class="project-url"
             >↗ basmat-aqar.com</a
           >
         </div>
@@ -655,7 +713,7 @@
           </div>
           <a
             href="https://masahatsukoon.com/"
-            target="_blank"
+            target="_blank" rel="noopener"
             class="project-url"
             >↗ masahatsukoon.com</a
           >
@@ -805,6 +863,7 @@
           class="contact-item reveal"
           href="https://linkedin.com/in/ahmed-a-elngar"
           target="_blank"
+          rel="me noopener"
           ><div class="contact-icon">
             <svg
               viewBox="0 0 24 24"
@@ -829,6 +888,7 @@
           class="contact-item reveal d1"
           href="https://github.com/ahmed-a-elngar"
           target="_blank"
+          rel="me noopener"
           ><div class="contact-icon">
             <svg
               viewBox="0 0 24 24"
@@ -851,6 +911,8 @@
       </div>
     </section>
 
+    </main>
+
     <footer>
       <p>
         Ahmed Abdelaziz Mohamed Elngar · Backend Architect · Jeddah, Saudi
@@ -863,42 +925,140 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ahmed Abdelaziz Mohamed Elngar",
-        "alternateName": ["Ahmed Elngar", "Ahmed A Elngar", "Ahmed Abdelaziz Elngar"],
-        "givenName": "Ahmed",
-        "additionalName": "Abdelaziz Mohamed",
-        "familyName": "Elngar",
-        "jobTitle": "Backend Architect",
-        "email": "AhmedAbdElazizElngar@gmail.com",
-        "telephone": ["+966534501096", "+201018689353"],
-        "url": "https://ahmed-a-elngar.github.io/",
-        "image": "https://ahmed-a-elngar.github.io/assets/profile.png",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jeddah",
-          "addressCountry": "SA"
-        },
-        "sameAs": [
-          "https://linkedin.com/in/ahmed-a-elngar",
-          "https://github.com/ahmed-a-elngar"
-        ],
-        "knowsAbout": [
-          "Laravel",
-          "PHP",
-          "MySQL",
-          "REST API Design",
-          "Payment Gateway Integration",
-          "Noon Payments",
-          "Bookeey",
-          "HLS Video Streaming",
-          "Secure Video Delivery",
-          "ZATCA E-Invoicing",
-          "WASL Fleet Integration",
-          "SaaS Architecture",
-          "ERP Systems"
-        ],
-        "worksFor": { "@type": "Organization", "name": "Idara.net" }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://ahmed-a-elngar.github.io/#website",
+            "url": "https://ahmed-a-elngar.github.io/",
+            "name": "Ahmed Abdelaziz Mohamed Elngar",
+            "description": "Portfolio of Ahmed Abdelaziz Mohamed Elngar, Backend Architect specialising in Laravel, PHP and SaaS architecture.",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://ahmed-a-elngar.github.io/#person"
+            }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://ahmed-a-elngar.github.io/#webpage",
+            "url": "https://ahmed-a-elngar.github.io/",
+            "name": "Ahmed Abdelaziz Mohamed Elngar — Backend Architect & Laravel Developer",
+            "isPartOf": {
+              "@id": "https://ahmed-a-elngar.github.io/#website"
+            },
+            "about": {
+              "@id": "https://ahmed-a-elngar.github.io/#person"
+            },
+            "mainEntity": {
+              "@id": "https://ahmed-a-elngar.github.io/#person"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://ahmed-a-elngar.github.io/#primaryimage"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://ahmed-a-elngar.github.io/#primaryimage",
+            "url": "https://ahmed-a-elngar.github.io/assets/og-cover.png",
+            "contentUrl": "https://ahmed-a-elngar.github.io/assets/og-cover.png",
+            "width": 1200,
+            "height": 630,
+            "caption": "Ahmed Abdelaziz Mohamed Elngar — Backend Architect"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://ahmed-a-elngar.github.io/#person",
+            "name": "Ahmed Abdelaziz Mohamed Elngar",
+            "alternateName": [
+              "Ahmed Elngar",
+              "Ahmed A Elngar",
+              "Ahmed Abdelaziz Elngar",
+              "Ahmed Abdelaziz"
+            ],
+            "givenName": "Ahmed",
+            "additionalName": "Abdelaziz Mohamed",
+            "familyName": "Elngar",
+            "jobTitle": "Backend Architect",
+            "description": "Backend Architect with 4+ years building ERP systems, real-time tracking platforms and SaaS products in Laravel and PHP. Experienced in payment gateway integration, ZATCA e-invoicing and secure HLS video delivery.",
+            "url": "https://ahmed-a-elngar.github.io/",
+            "email": "mailto:AhmedAbdElazizElngar@gmail.com",
+            "telephone": [
+              "+966534501096",
+              "+201018689353"
+            ],
+            "image": {
+              "@id": "https://ahmed-a-elngar.github.io/#primaryimage"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Jeddah",
+              "addressCountry": "SA"
+            },
+            "homeLocation": {
+              "@type": "Place",
+              "name": "Jeddah, Saudi Arabia"
+            },
+            "knowsLanguage": [
+              {
+                "@type": "Language",
+                "name": "Arabic",
+                "alternateName": "ar"
+              },
+              {
+                "@type": "Language",
+                "name": "English",
+                "alternateName": "en"
+              }
+            ],
+            "worksFor": {
+              "@id": "https://ahmed-a-elngar.github.io/#idara"
+            },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Mansoura University",
+              "sameAs": "https://en.wikipedia.org/wiki/Mansoura_University"
+            },
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Backend Architect",
+              "occupationLocation": {
+                "@type": "City",
+                "name": "Jeddah, Saudi Arabia"
+              },
+              "skills": "Laravel, PHP, MySQL, REST API design, SaaS architecture, payment gateway integration, ZATCA e-invoicing, HLS video streaming"
+            },
+            "knowsAbout": [
+              "Laravel",
+              "PHP",
+              "MySQL",
+              "REST API Design",
+              "SaaS Architecture",
+              "ERP Systems",
+              "Payment Gateway Integration",
+              "Noon Payments",
+              "Bookeey",
+              "HLS Video Streaming",
+              "Secure Video Delivery",
+              "ZATCA E-Invoicing",
+              "WASL Fleet Integration",
+              "Real-Time Vehicle Tracking",
+              "Node.js",
+              "AWS",
+              "Redis",
+              "Docker"
+            ],
+            "sameAs": [
+              "https://linkedin.com/in/ahmed-a-elngar",
+              "https://github.com/ahmed-a-elngar"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://ahmed-a-elngar.github.io/#idara",
+            "name": "Idara.net",
+            "url": "https://idara.net"
+          }
+        ]
       }
     </script>
   </body>

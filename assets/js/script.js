@@ -15,6 +15,9 @@ toggle.addEventListener("click", () => {
   } catch (e) {}
 });
 
+// The head watchdog un-hides content if this file never runs. It did, so stop it.
+clearTimeout(window.__revealWatchdog);
+
 // Reveal Observer
 const observer = new IntersectionObserver(
   (entries) => {
@@ -177,6 +180,75 @@ if (qrToggle && qrModal && qrClose) {
   qrModal.addEventListener("click", (e) => {
     if (e.target === qrModal) qrModal.classList.remove("active");
   });
+}
+
+// Design-theme picker
+// The pre-paint guard in <head> already applied the stored pack; this only
+// handles switching and keeping the menu in sync.
+const THEME_PACKS = ["midnight", "editorial", "aurora"];
+const skinToggle = document.getElementById("skinToggle");
+const skinMenu = document.getElementById("skinMenu");
+const skinPicker = document.getElementById("skinPicker");
+const themeCss = document.getElementById("themeCss");
+
+if (skinToggle && skinMenu && themeCss) {
+  const currentPack = () =>
+    document.documentElement.getAttribute("data-pack") || "midnight";
+
+  function markCurrent() {
+    const now = currentPack();
+    skinMenu.querySelectorAll(".skin-option").forEach((btn) => {
+      btn.setAttribute(
+        "aria-current",
+        btn.dataset.skin === now ? "true" : "false",
+      );
+    });
+  }
+
+  function closeMenu() {
+    skinMenu.hidden = true;
+    skinToggle.setAttribute("aria-expanded", "false");
+  }
+
+  function applyPack(pack) {
+    if (!THEME_PACKS.includes(pack) || pack === currentPack()) return closeMenu();
+    themeCss.href = "assets/themes/" + pack + "/theme.css";
+    document.documentElement.setAttribute("data-pack", pack);
+    try {
+      localStorage.setItem("themePack", pack);
+    } catch (e) {}
+    markCurrent();
+    closeMenu();
+    // Icons are re-created because a theme may size or restyle them.
+    if (typeof lucide !== "undefined") lucide.createIcons();
+  }
+
+  skinToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = skinMenu.hidden;
+    skinMenu.hidden = !open;
+    skinToggle.setAttribute("aria-expanded", String(open));
+    if (open) markCurrent();
+  });
+
+  skinMenu.addEventListener("click", (e) => {
+    const btn = e.target.closest(".skin-option");
+    if (btn) applyPack(btn.dataset.skin);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!skinMenu.hidden && !skinPicker.contains(e.target)) closeMenu();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (!skinMenu.hidden) closeMenu();
+      if (qrModal && qrModal.classList.contains("active"))
+        qrModal.classList.remove("active");
+    }
+  });
+
+  markCurrent();
 }
 
 // Initialize Lucide Icons

@@ -72,17 +72,6 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <meta name="theme-color" content="#2772db" />
 
-    <!-- Apply saved theme before first paint (prevents light-mode flash) -->
-    <script>
-      (function () {
-        try {
-          document.documentElement.setAttribute(
-            "data-theme",
-            localStorage.getItem("theme") === "light" ? "light" : "dark",
-          );
-        } catch (e) {}
-      })();
-    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -99,24 +88,123 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/Ahmed AbdElaziz sp.jpg" fetchpriority="high" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;display=swap"
-      rel="stylesheet"
-    />
     <!-- Lucide Icons (pinned; deferred so it never blocks first paint) -->
     <script
       defer
       src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"
     ></script>
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      id="themeCss"
+      href="assets/themes/midnight/theme.css"
+    />
+    <!-- Resolve colour mode and design theme before first paint.
+         Two independent axes: data-theme = light|dark, themeCss = design pack. -->
+    <script>
+      (function () {
+        var THEMES = { midnight: 1, editorial: 1, aurora: 1 };
+        try {
+          document.documentElement.setAttribute(
+            "data-theme",
+            localStorage.getItem("theme") === "light" ? "light" : "dark",
+          );
+          var pack = localStorage.getItem("themePack");
+          if (pack && THEMES[pack]) {
+            document.documentElement.setAttribute("data-pack", pack);
+            var link = document.getElementById("themeCss");
+            var href = "assets/themes/" + pack + "/theme.css";
+            // Runs while the head is still parsing, so swapping the href here
+            // still blocks the first paint - no flash of the default theme.
+            if (link && link.getAttribute("href") !== href) {
+              link.setAttribute("href", href);
+            }
+          } else {
+            document.documentElement.setAttribute("data-pack", "midnight");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Accessibility baseline. Theme-independent on purpose: a new theme
+         must not be able to lose keyboard focus rings or the skip link. -->
+    <style>
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 999;
+        padding: 0.7rem 1.1rem;
+        border-radius: 0 0 10px 0;
+        background: #111;
+        color: #fff;
+        font: 500 14px/1 system-ui, sans-serif;
+        text-decoration: none;
+      }
+      .skip-link:focus {
+        left: 0;
+      }
+      :focus-visible {
+        outline: 3px solid currentColor;
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      /* Skill bars are normally filled from data-level by script. Without a
+         working script, fall back to the same values in pure CSS. */
+      :root:not(.js) .skill-chip[data-level="96"] .skill-fill { width: 96%; }
+      :root:not(.js) .skill-chip[data-level="95"] .skill-fill { width: 95%; }
+      :root:not(.js) .skill-chip[data-level="90"] .skill-fill { width: 90%; }
+      :root:not(.js) .skill-chip[data-level="85"] .skill-fill { width: 85%; }
+      :root:not(.js) .skill-chip[data-level="80"] .skill-fill { width: 80%; }
+      :root:not(.js) .skill-chip[data-level="75"] .skill-fill { width: 75%; }
+      :root:not(.js) .skill-chip[data-level="70"] .skill-fill { width: 70%; }
+    </style>
+
+    <!-- Scroll reveals are progressive enhancement: content is visible by
+         default and only hidden once we know scripting is available. The
+         watchdog un-hides everything if script.js never boots (blocked,
+         404, or a JS error), so the page can never end up blank. -->
+    <script>
+      (function () {
+        var r = document.documentElement;
+        r.classList.add("js");
+        window.__revealWatchdog = setTimeout(function () {
+          r.classList.remove("js");
+        }, 2500);
+      })();
+    </script>
+
+
   </head>
   <body>
+    <a class="skip-link" href="#about">Skip to content</a>
     <div class="cursor" id="cursor"></div>
     <div class="grain"></div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
       🌙
     </button>
+    <div class="skin-picker" id="skinPicker">
+      <button
+        class="skin-toggle"
+        id="skinToggle"
+        aria-label="Change design theme"
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        <i data-lucide="palette"></i>
+      </button>
+      <div class="skin-menu" id="skinMenu" role="menu" hidden>
+        <div class="skin-menu-label">Design</div>
+        <button class="skin-option" data-skin="midnight" role="menuitem">
+          <span class="skin-dot skin-dot-midnight"></span> Midnight
+        </button>
+        <button class="skin-option" data-skin="editorial" role="menuitem">
+          <span class="skin-dot skin-dot-editorial"></span> Editorial
+        </button>
+        <button class="skin-option" data-skin="aurora" role="menuitem">
+          <span class="skin-dot skin-dot-aurora"></span> Aurora
+        </button>
+      </div>
+    </div>
     <button class="qr-toggle" id="qrToggle" aria-label="Digital Contact">
       <i data-lucide="qr-code"></i>
     </button>

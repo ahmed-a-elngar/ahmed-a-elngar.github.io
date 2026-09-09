@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+/* The hidden attribute must win over any display rule below. */
+[hidden] {
+  display: none !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +24,7 @@
   --accent3: #3b82f6;
   --text: #f4f4fc;
   --muted: #a0a0bc;
-  --dim: #5a5a72;
+  --dim: #78788b;
   --nav-bg: rgba(5, 5, 12, 0.8);
   --tag-bg: rgba(39, 114, 219, 0.08);
   --badge-full-bg: rgba(39, 114, 219, 0.12);
@@ -46,7 +53,7 @@
   --accent3: #2563eb;
   --text: #171717;
   --muted: #5a5a5a;
-  --dim: #9e9e9e;
+  --dim: #707070;
   --nav-bg: rgba(250, 248, 245, 0.85);
   --tag-bg: rgba(39, 114, 219, 0.06);
   --badge-full-bg: rgba(39, 114, 219, 0.08);
@@ -272,7 +279,7 @@ svg[data-lucide] {
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 9.2rem;
+  bottom: 12.9rem;
   right: 1.8rem;
   width: 44px;
   height: 44px;
@@ -1119,14 +1126,14 @@ footer {
   font-size: 11px;
   color: var(--dim);
 }
-.reveal {
+:root.js .reveal {
   opacity: 0;
   transform: translateY(20px);
   transition:
     opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1),
     transform 0.5s ease;
 }
-.reveal.in {
+:root.js .reveal.in {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1134,8 +1141,25 @@ footer {
   nav {
     padding: 1.2rem;
   }
+  /* Mobile keeps the section links as a scrollable row - hiding them left
+     phone users with no way to navigate the page. */
   .nav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-left: 0.6rem;
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, #000 88%, transparent);
+  }
+  .nav-links::-webkit-scrollbar {
     display: none;
+  }
+  .nav-links a {
+    white-space: nowrap;
+    font-size: 11.5px;
+    padding: 4px 8px;
   }
   section {
     padding: 3rem 1.2rem;
@@ -1158,7 +1182,7 @@ footer {
     grid-template-columns: 1fr;
   }
   .back-to-top {
-    bottom: 6.8rem;
+    bottom: 9.7rem;
     right: 1rem;
     width: 40px;
     height: 40px;
@@ -1190,5 +1214,105 @@ footer {
   }
   .grain {
     opacity: 0.005;
+  }
+}
+
+/* Design-theme picker */
+.skin-picker {
+  position: fixed;
+  bottom: 9.2rem;
+  right: 1.8rem;
+  z-index: 201;
+}
+.skin-toggle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  box-shadow: var(--glow-accent);
+  transition: all 0.2s ease;
+}
+.skin-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.skin-menu {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  min-width: 172px;
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.skin-menu-label {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  padding: 6px 10px 4px;
+}
+.skin-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.skin-option:hover {
+  background: var(--accent-dim);
+  color: var(--text);
+}
+.skin-option[aria-current="true"] {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.skin-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  flex-shrink: 0;
+}
+.skin-dot-midnight {
+  background: linear-gradient(135deg, #05050c 40%, #2772db);
+}
+.skin-dot-editorial {
+  background: linear-gradient(135deg, #faf8f4 40%, #b4531f);
+}
+.skin-dot-aurora {
+  background: linear-gradient(135deg, #7c5cff, #f65cae 55%, #ffb457);
+}
+@media (max-width: 760px) {
+  .skin-picker {
+    bottom: 6.8rem;
+    right: 1rem;
+  }
+  .skin-toggle {
+    width: 40px;
+    height: 40px;
   }
 }

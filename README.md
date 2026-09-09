@@ -8,3 +8,26 @@ A modern, responsive portfolio website highlighting backend development expertis
 - REST API design and implementation
 
 Built with HTML5, CSS3, and JavaScript. Features dark/light mode, smooth animations, and responsive design.
+
+## Themes
+
+The site ships multiple design themes. `index.html` is the single source of
+truth for all content; a theme only supplies CSS.
+
+```
+assets/themes/
+  midnight/theme.css   dark, neon-accented (default)
+  editorial/theme.css  warm paper, serif display
+  aurora/theme.css     animated mesh gradient, glassmorphism, bento
+```
+
+The visitor's choice is stored in `localStorage.themePack` and applied by an
+inline script in `<head>` before first paint, so there is no flash of the
+default theme. Colour mode (light/dark) is a separate axis stored in
+`localStorage.theme` — every theme implements both.
+
+**To add a theme:** create `assets/themes/<name>/theme.css`, then register the
+name in two places — the `THEMES` map in the `<head>` guard of `index.html`,
+and `THEME_PACKS` in `assets/js/script.js` — and add an option button to the
+`#skinMenu` markup. Style every class the markup uses; there is no shared
+base stylesheet, so each theme is self-contained.

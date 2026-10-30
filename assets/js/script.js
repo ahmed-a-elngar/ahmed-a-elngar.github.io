@@ -28,10 +28,6 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("in");
-        const fill = entry.target.querySelector(".skill-fill");
-        if (fill && entry.target.dataset.level) {
-          fill.style.width = entry.target.dataset.level + "%";
-        }
         observer.unobserve(entry.target);
       }
     });
@@ -39,7 +35,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.1, rootMargin: "20px" },
 );
 document
-  .querySelectorAll(".reveal, .skill-chip")
+  .querySelectorAll(".reveal")
   .forEach((el) => observer.observe(el));
 
 // Project Filter with Counts
@@ -146,7 +142,7 @@ if (cursor && window.innerWidth > 900) {
     cursor.style.top = e.clientY + "px";
   });
   const interactives = document.querySelectorAll(
-    "a, button, .project-card, .skill-chip, .contact-item, .exp-card, .btn-primary, .filter-btn",
+    "a, button, .project-card, .contact-item, .exp-card, .btn-primary, .filter-btn",
   );
   interactives.forEach((el) => {
     el.addEventListener("mouseenter", () => {

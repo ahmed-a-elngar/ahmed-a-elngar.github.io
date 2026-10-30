@@ -152,16 +152,6 @@
         outline-offset: 3px;
         border-radius: 4px;
       }
-      /* Skill bars are normally filled from data-level by script. Without a
-         working script, fall back to the same values in pure CSS. */
-      :root:not(.js) .skill-chip[data-level="96"] .skill-fill { width: 96%; }
-      :root:not(.js) .skill-chip[data-level="95"] .skill-fill { width: 95%; }
-      :root:not(.js) .skill-chip[data-level="90"] .skill-fill { width: 90%; }
-      :root:not(.js) .skill-chip[data-level="85"] .skill-fill { width: 85%; }
-      :root:not(.js) .skill-chip[data-level="80"] .skill-fill { width: 80%; }
-      :root:not(.js) .skill-chip[data-level="75"] .skill-fill { width: 75%; }
-      :root:not(.js) .skill-chip[data-level="70"] .skill-fill { width: 70%; }
-
       /* Comfortable tap targets on touch devices. Desktop keeps its compact
          sizing; only coarse pointers (and narrow screens) get the padding. */
       @media (pointer: coarse), (max-width: 760px) {
@@ -408,48 +398,44 @@
       <div class="section-tag">// stack</div>
       <h2 class="section-title">Tech Stack</h2>
       <p class="section-sub reveal">
-        Core tools I use daily to build production-grade systems.
+        Grouped by where I use it, not by self-rated percentages.
       </p>
-      <div class="skills-grid">
-        <div class="skill-chip reveal" data-level="96">
-          <span class="skill-name">Laravel</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d1" data-level="95">
-          <span class="skill-name">PHP</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d2" data-level="90">
-          <span class="skill-name">MySQL</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal" data-level="85">
-          <span class="skill-name">REST APIs</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d1" data-level="80">
-          <span class="skill-name">Git</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d2" data-level="75">
-          <span class="skill-name">jQuery/Ajax</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
-        <div class="skill-chip reveal d3" data-level="70">
-          <span class="skill-name">SonarQube</span>
-          <div class="skill-bar"><div class="skill-fill"></div></div>
-        </div>
+      <div class="skills-sep reveal">backend &amp; data</div>
+      <div class="familiar-grid reveal">
+        <span class="familiar-tag">Laravel</span>
+        <span class="familiar-tag">PHP 8</span>
+        <span class="familiar-tag">MySQL &amp; schema design</span>
+        <span class="familiar-tag">REST API design</span>
+        <span class="familiar-tag">Queues &amp; background jobs</span>
+        <span class="familiar-tag">Multi-tenant SaaS</span>
+      </div>
+      <div class="skills-sep reveal">integrations</div>
+      <div class="familiar-grid reveal">
+        <span class="familiar-tag">ZATCA e-invoicing</span>
+        <span class="familiar-tag">WASL</span>
+        <span class="familiar-tag">Noon Payments</span>
+        <span class="familiar-tag">Bookeey</span>
+        <span class="familiar-tag">HLS video</span>
+      </div>
+      <div class="skills-sep reveal">mobile &amp; frontend</div>
+      <div class="familiar-grid reveal">
+        <span class="familiar-tag">Flutter</span>
+        <span class="familiar-tag">Android (Java)</span>
+        <span class="familiar-tag">Tailwind</span>
+        <span class="familiar-tag">jQuery / Ajax</span>
+      </div>
+      <div class="skills-sep reveal">infrastructure &amp; quality</div>
+      <div class="familiar-grid reveal">
+        <span class="familiar-tag">AWS</span>
+        <span class="familiar-tag">Node.js</span>
+        <span class="familiar-tag">Git</span>
+        <span class="familiar-tag">SonarQube</span>
       </div>
       <div class="skills-sep reveal">familiar with</div>
       <div class="familiar-grid reveal">
-        <span class="familiar-tag">AWS</span>
-        <span class="familiar-tag">Python</span>
-        <span class="familiar-tag">Android</span>
-        <span class="familiar-tag">Node.js</span>
-        <span class="familiar-tag">Java</span>
-        <span class="familiar-tag">Flutter</span>
         <span class="familiar-tag">Docker</span>
         <span class="familiar-tag">Redis</span>
+        <span class="familiar-tag">Python</span>
       </div>
     </section>
 

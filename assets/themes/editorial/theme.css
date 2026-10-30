@@ -1218,3 +1218,31 @@ nav {
     border-bottom-color: var(--rule);
   }
 }
+
+/* ----------------------------------------------------- trust strip ----- */
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-top: 1.6rem;
+}
+.hero-trust-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.trust-item {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+}
+.trust-item + .trust-item::before {
+  content: "·";
+  margin-right: 14px;
+  font-style: normal;
+  color: var(--accent);
+}

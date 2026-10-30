@@ -1421,3 +1421,29 @@ nav {
     border-radius: 14px;
   }
 }
+
+/* ----------------------------------------------------- trust strip ----- */
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-top: 1.4rem;
+}
+.hero-trust-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-right: 4px;
+}
+.trust-item {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+}

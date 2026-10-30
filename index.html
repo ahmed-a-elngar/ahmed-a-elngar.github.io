@@ -195,6 +195,18 @@
         display: flex;
         gap: 8px;
       }
+      /* Several links on one card (site + app stores) share a wrapping row
+         instead of stacking one per line. */
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 16px;
+        margin-top: auto;
+      }
+      .project-links .project-url {
+        margin-top: 0;
+      }
       footer a {
         color: inherit;
         text-underline-offset: 3px;
@@ -879,23 +891,25 @@
             ><span class="tag">Nafath</span><span class="tag">Yakeen</span
             ><span class="tag">Noon Payments</span>
           </div>
-          <a href="https://ilzam.sa" target="_blank" rel="noopener" class="project-url"
-            >↗ ilzam.sa</a
-          >
-          <a
-            href="https://apps.apple.com/app/ilzam/id6759380839"
-            target="_blank"
-            rel="noopener"
-            class="project-url"
-            >↗ App Store</a
-          >
-          <a
-            href="https://play.google.com/store/apps/details?id=net.ilzam"
-            target="_blank"
-            rel="noopener"
-            class="project-url"
-            >↗ Google Play</a
-          >
+          <div class="project-links">
+            <a href="https://ilzam.sa" target="_blank" rel="noopener" class="project-url"
+              >↗ ilzam.sa</a
+            >
+            <a
+              href="https://apps.apple.com/app/ilzam/id6759380839"
+              target="_blank"
+              rel="noopener"
+              class="project-url"
+              >↗ App Store</a
+            >
+            <a
+              href="https://play.google.com/store/apps/details?id=net.ilzam"
+              target="_blank"
+              rel="noopener"
+              class="project-url"
+              >↗ Google Play</a
+            >
+          </div>
         </div>
         <div class="project-card reveal d2" data-category="fulltime">
           <div class="project-header">

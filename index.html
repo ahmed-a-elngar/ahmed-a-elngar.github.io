@@ -250,6 +250,23 @@
         .qr-close {
           padding-inline: 14px;
         }
+        .theme-toggle,
+        .qr-toggle,
+        .skin-toggle,
+        .nav-menu-toggle {
+          width: 42px;
+          height: 42px;
+        }
+      }
+      /* Small phones: the monogram alone carries the brand, leaving room for
+         four full-size nav buttons. */
+      @media (max-width: 420px) {
+        .logo-text {
+          display: none;
+        }
+        .nav-logo {
+          min-width: 44px;
+        }
       }
     </style>
 
@@ -310,8 +327,8 @@
 
     <header>
       <nav id="siteNav">
-        <a href="#" class="nav-logo"
-          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="logo-mark" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.75 22 L9.75 2 H22.25 V5 H14.95 V11.5 H20.75 V14.5 H14.95 V19 H22.25 V22 H11.75 V14.5 H8.35 L5.35 22 Z M11.75 6 V11.5 H9.55 Z" /></svg> AELNGAR</a
+        <a href="#" class="nav-logo" aria-label="Ahmed Elngar, back to top"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="logo-mark" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.75 22 L9.75 2 H22.25 V5 H14.95 V11.5 H20.75 V14.5 H14.95 V19 H22.25 V22 H11.75 V14.5 H8.35 L5.35 22 Z M11.75 6 V11.5 H9.55 Z" /></svg><span class="logo-text">AELNGAR</span></a
         >
         <div class="nav-links" id="navLinks">
           <a href="#about">About</a>

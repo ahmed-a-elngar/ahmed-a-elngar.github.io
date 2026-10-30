@@ -290,6 +290,12 @@ nav {
   gap: 8px;
   text-decoration: none;
 }
+/* The wordmark's gradient is clipped to text, which makes currentColor
+   transparent - give the monogram its own colour so it stays visible. */
+.nav-logo svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
 .nav-links {
   display: flex;
   gap: 2rem;

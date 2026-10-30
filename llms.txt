@@ -1,12 +1,13 @@
 # Ahmed Abdelaziz Mohamed Elngar
 
 > Backend Architect based in Jeddah, Saudi Arabia. 4+ years building ERP
-> systems, real-time tracking platforms and SaaS products in Laravel and PHP.
+> systems, real-time tracking platforms and SaaS products in Laravel and PHP,
+> and plans, distributes and signs off the feature work the team delivers.
 > Also known as Ahmed Elngar, Ahmed A Elngar, Ahmed Abdelaziz Elngar.
 
 - Role: Backend Architect at Idara.net (Sep 2023 – present)
 - Location: Jeddah, Saudi Arabia
-- Core stack: Laravel, PHP 8, MySQL, REST APIs, Node.js, AWS
+- Core stack: Laravel, PHP 8, MySQL, REST APIs, Node.js, AWS; Flutter for mobile
 - Education: B.Sc. Computer Science, Mansoura University (2016–2020)
 - Email: AhmedAbdElazizElngar@gmail.com
 - Phone: +966 53 450 1096 (Saudi Arabia), +20 101 868 9353 (Egypt)
@@ -15,22 +16,28 @@
 
 ## Specialized expertise
 
-- Payment gateway integration — Noon Payments (iDara Sign), Bookeey (Masahat Sukoon)
+- Payment gateway integration — Noon Payments (Ilzam), Bookeey (Masahat Sukoon)
 - Secure video delivery — segmented HLS streaming with protected playback
 - Regulatory integration — ZATCA e-invoicing, WASL fleet synchronization
+- Digital identity and e-signatures (Ilzam) — Nafath via Emdha, Yakeen identity verification, certificate-based digital signing
+- Messaging (Ilzam) — Meta WhatsApp Business API
 - Product and business direction — scoping and shaping requirements, not only implementation
+- Delivery direction — planning features, distributing them across the team and verifying each one against its requirements before release
+- Mobile — built the Ilzam mobile app in Flutter
 
 ## Selected projects
 
-- iDara ERP — core ERP platform (customers, stores, invoices, employees): https://idara.net
-- Fatoora — ZATCA e-invoice synchronization and compliance reporting: https://fatoora.idara.sa
+- iDara ERP — core ERP platform used by 300+ clients (customers, stores, invoices, employees): https://idara.net
+- Fatoora — ZATCA e-invoice synchronization and compliance reporting, 60,000+ invoices submitted: https://fatoora.idara.sa
 - Vehicle Tracking — real-time tracking with WASL sync and live dashboard: https://tracking.idara.net
-- Umra.net — pilgrimage management ERP, logistics and hotel bookings: https://umra.net
-- iDara Sign — digital document signing with Noon Payments: https://sign.idara.sa
+- Umra.net — pilgrimage management ERP used by 300+ clients, logistics and hotel bookings: https://umra.net
+- Ilzam — e-signature platform serving 100+ clients (Laravel web + Flutter app on iOS and Android) with Nafath, Yakeen, WhatsApp and Noon Payments: https://ilzam.sa
 - Masahat Sukoon — Arabic e-learning platform, HLS video, Bookeey payments: https://masahatsukoon.com
 - BASMAT AQAR — real estate marketplace: https://basmat-aqar.com
+- Kassemha — expense-splitting app for friends, family and roommates (personal project): https://kassemha.com
 
 ## Links
 
 - [Portfolio](https://ahmed-a-elngar.github.io/): full experience, project list and contact details
+- [CV (PDF)](https://ahmed-a-elngar.github.io/Ahmed_AbdElaziz_CV.pdf)
 - [Sitemap](https://ahmed-a-elngar.github.io/sitemap.xml)

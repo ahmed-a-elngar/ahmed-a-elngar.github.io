@@ -4,12 +4,16 @@
 const toggle = document.getElementById("themeToggle");
 const root = document.documentElement;
 let dark = root.getAttribute("data-theme") !== "light";
-toggle.textContent = dark ? "🌙" : "☀️";
+function syncToggle() {
+  toggle.textContent = dark ? "🌙" : "☀️";
+  toggle.setAttribute("aria-pressed", String(dark));
+}
+syncToggle();
 toggle.addEventListener("click", () => {
   dark = !dark;
   const t = dark ? "dark" : "light";
   root.setAttribute("data-theme", t);
-  toggle.textContent = dark ? "🌙" : "☀️";
+  syncToggle();
   try {
     localStorage.setItem("theme", t);
   } catch (e) {}
@@ -162,6 +166,12 @@ const qrModal = document.getElementById("qrModal");
 const qrClose = document.getElementById("qrClose");
 const qrImage = document.getElementById("qrImage");
 
+function closeQr() {
+  if (!qrModal.classList.contains("active")) return;
+  qrModal.classList.remove("active");
+  qrToggle.focus();
+}
+
 if (qrToggle && qrModal && qrClose) {
   const qrUrl = "assets/contact-qr.png";
 
@@ -171,14 +181,29 @@ if (qrToggle && qrModal && qrClose) {
       qrImage.src = qrUrl;
     }
     qrModal.classList.add("active");
+    qrClose.focus();
   });
 
-  qrClose.addEventListener("click", () => {
-    qrModal.classList.remove("active");
-  });
+  qrClose.addEventListener("click", closeQr);
 
   qrModal.addEventListener("click", (e) => {
-    if (e.target === qrModal) qrModal.classList.remove("active");
+    if (e.target === qrModal) closeQr();
+  });
+
+  qrModal.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") return closeQr();
+    // Keep Tab cycling inside the dialog while it is open.
+    if (e.key !== "Tab") return;
+    const focusables = qrModal.querySelectorAll("a[href], button");
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 }
 
@@ -241,11 +266,7 @@ if (skinToggle && skinMenu && themeCss) {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      if (!skinMenu.hidden) closeMenu();
-      if (qrModal && qrModal.classList.contains("active"))
-        qrModal.classList.remove("active");
-    }
+    if (e.key === "Escape" && !skinMenu.hidden) closeMenu();
   });
 
   markCurrent();

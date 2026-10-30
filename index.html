@@ -201,10 +201,15 @@
 
   </head>
   <body>
-    <a class="skip-link" href="#about">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="cursor" id="cursor"></div>
     <div class="grain"></div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      aria-label="Dark mode"
+      aria-pressed="true"
+    >
       🌙
     </button>
     <div class="skin-picker" id="skinPicker">
@@ -230,25 +235,38 @@
         </button>
       </div>
     </div>
-    <button class="qr-toggle" id="qrToggle" aria-label="Digital Contact">
-      <i data-lucide="qr-code"></i>
+    <button
+      class="qr-toggle"
+      id="qrToggle"
+      aria-label="Digital Contact"
+      aria-haspopup="dialog"
+      aria-controls="qrModal"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code" data-lucide="qr-code" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" /><rect width="5" height="5" x="16" y="3" rx="1" /><rect width="5" height="5" x="3" y="16" rx="1" /><path d="M21 16h-3a2 2 0 0 0-2 2v3" /><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path d="M3 12h.01" /><path d="M12 3h.01" /><path d="M12 16v.01" /><path d="M16 12h1" /><path d="M21 12v.01" /><path d="M12 21v-1" /></svg>
     </button>
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       ↑
     </button>
 
     <!-- QR Modal -->
-    <div class="qr-modal" id="qrModal">
+    <div
+      class="qr-modal"
+      id="qrModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="qrTitle"
+    >
       <div class="qr-card">
         <div class="qr-img-wrapper">
           <img
             id="qrImage"
-            src=""
             alt="Contact QR Code"
+            width="200"
+            height="200"
             style="width: 200px; height: 200px"
           />
         </div>
-        <div class="qr-name">Ahmed Abdelaziz Mohamed Elngar</div>
+        <div class="qr-name" id="qrTitle">Ahmed Abdelaziz Mohamed Elngar</div>
         <p>Backend Architect</p>
         <div style="display: flex; flex-direction: column; gap: 10px">
           <a href="assets/contact.vcf" download="Ahmed_Elngar.vcf" class="qr-close" style="text-decoration: none; display: inline-block;">
@@ -278,7 +296,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main">
       <div class="hero">
       <div class="glow glow1"></div>
       <div class="glow glow2"></div>

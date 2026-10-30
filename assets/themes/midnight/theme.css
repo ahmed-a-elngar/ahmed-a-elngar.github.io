@@ -320,12 +320,14 @@ nav {
 }
 
 /* Hero Section */
+/* The nav is fixed over the page, so the top padding reserves its height:
+   content centres in the space below it instead of sliding underneath. */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 2rem;
+  padding: 6rem 2rem 3rem;
 }
 .glow {
   position: absolute;

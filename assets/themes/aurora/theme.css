@@ -605,7 +605,8 @@ section {
 .expertise-card:nth-child(1) {
   grid-column: span 2;
 }
-.expertise-card:nth-child(4) {
+.expertise-card:nth-child(4),
+.expertise-card:nth-child(6) {
   grid-column: span 2;
 }
 .expertise-card {
@@ -728,6 +729,16 @@ section {
   color: var(--muted);
   margin-top: 0.75rem;
   max-width: 70ch;
+}
+.exp-points {
+  margin: 0 0 0.6rem;
+  padding-left: 1.1rem;
+}
+.exp-points li {
+  margin-bottom: 0.3rem;
+}
+.exp-points li::marker {
+  color: var(--accent);
 }
 .exp-period {
   font-family: "JetBrains Mono", monospace;
@@ -1307,6 +1318,9 @@ footer {
   .expertise-card:nth-child(1),
   .expertise-card:nth-child(4) {
     grid-column: span 2;
+  }
+  .expertise-card:nth-child(6) {
+    grid-column: span 1;
   }
 }
 

@@ -889,52 +889,10 @@ footer {
 }
 
 /* --------------------------------------------------- floating controls --- */
-.theme-toggle,
-.qr-toggle,
-.skin-toggle {
-  position: fixed;
-  right: 1.8rem;
-  z-index: 200;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--card);
-  border: 1px solid var(--rule-strong);
-  color: var(--ink);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow);
-  transition: all 0.2s ease;
-}
-.theme-toggle {
-  bottom: 1.8rem;
-  font-size: 18px;
-}
-.qr-toggle {
-  bottom: 5.2rem;
-}
-.theme-toggle:hover,
-.qr-toggle:hover,
-.skin-toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-}
 
-.skin-picker {
-  position: fixed;
-  bottom: 8.6rem;
-  right: 1.8rem;
-  z-index: 201;
-}
-.skin-toggle {
-  position: static;
-}
 .skin-menu {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 10px);
   right: 0;
   min-width: 176px;
   background: var(--card);
@@ -997,7 +955,7 @@ footer {
 
 .back-to-top {
   position: fixed;
-  bottom: 12rem;
+  bottom: 1.8rem;
   right: 1.8rem;
   width: 40px;
   height: 40px;
@@ -1141,45 +1099,9 @@ footer {
   }
 }
 
-/* The full link row stops fitting well before the mobile breakpoint, so let it
-   scroll from 900px down rather than overflowing the bar. */
-@media (max-width: 900px) {
-  .nav-links {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-links a {
-    white-space: nowrap;
-  }
-}
-
 @media (max-width: 760px) {
   nav {
     padding: 1rem 1.3rem;
-  }
-  /* Mobile keeps the section links as a scrollable row - hiding them left
-     phone users with no way to navigate the page. */
-  .nav-links {
-    display: flex;
-    gap: 0.15rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    margin-left: 0.6rem;
-    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, #000 88%, transparent);
-  }
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-links a {
-    white-space: nowrap;
-    font-size: 11.5px;
-    padding: 4px 8px;
   }
   .hero {
     padding: 3rem 1.3rem 3rem;
@@ -1213,29 +1135,86 @@ footer {
   .filter-bar {
     gap: 1.1rem;
   }
-  .theme-toggle,
-  .qr-toggle,
-  .skin-toggle {
-    width: 38px;
-    height: 38px;
-    right: 1rem;
-  }
-  .theme-toggle {
-    bottom: 1rem;
-    font-size: 15px;
-  }
-  .qr-toggle {
-    bottom: 4rem;
-  }
-  .skin-picker {
-    bottom: 7rem;
-    right: 1rem;
-  }
   .back-to-top {
-    bottom: 10rem;
+    bottom: 1rem;
     right: 1rem;
     width: 36px;
     height: 36px;
     font-size: 15px;
+  }
+}
+
+/* ---------------------------------------------------- nav controls ----- */
+/* Colour mode, design pack and QR card live in the bar. Below 1080px the
+   section links collapse behind the menu button into a dropdown. */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.theme-toggle,
+.qr-toggle,
+.skin-toggle,
+.nav-menu-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--rule-strong);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+.theme-toggle:hover,
+.qr-toggle:hover,
+.skin-toggle:hover,
+.nav-menu-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.skin-picker {
+  position: relative;
+}
+.nav-menu-toggle {
+  display: none;
+}
+nav {
+  position: relative;
+}
+@media (max-width: 1080px) {
+  .nav-menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.3rem 1.5rem 0.9rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: var(--shadow);
+  }
+  nav.open .nav-links {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 0.85rem 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+  .nav-links a.active {
+    color: var(--accent);
+    border-bottom-color: var(--rule);
   }
 }

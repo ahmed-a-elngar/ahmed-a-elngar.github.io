@@ -163,49 +163,6 @@ svg[data-lucide] {
     display: block;
   }
 }
-.theme-toggle {
-  position: fixed;
-  bottom: 1.8rem;
-  right: 1.8rem;
-  z-index: 200;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--toggle-bg);
-  border: 1px solid var(--border2);
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  box-shadow: var(--glow-accent);
-  transition: all 0.2s ease;
-}
-.qr-toggle {
-  position: fixed;
-  bottom: 5.5rem;
-  right: 1.8rem;
-  z-index: 200;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--toggle-bg);
-  border: 1px solid var(--border2);
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text);
-  box-shadow: var(--glow-accent);
-  transition: all 0.2s ease;
-}
-.theme-toggle:hover,
-.qr-toggle:hover {
-  transform: scale(1.08);
-  border-color: var(--accent);
-}
 
 /* QR Modal */
 .qr-modal {
@@ -278,7 +235,7 @@ svg[data-lucide] {
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 12.9rem;
+  bottom: 1.8rem;
   right: 1.8rem;
   width: 44px;
   height: 44px;
@@ -812,22 +769,6 @@ section {
   border-left: 1px solid var(--border2);
   padding-left: 6px;
 }
-/* The full link row stops fitting well before the mobile breakpoint, so let it
-   scroll from 900px down rather than overflowing the bar. */
-@media (max-width: 900px) {
-  .nav-links {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-links a {
-    white-space: nowrap;
-  }
-}
-
 @media (max-width: 760px) {
   .expertise-grid {
     grid-template-columns: 1fr;
@@ -1166,26 +1107,6 @@ footer {
   nav {
     padding: 1.2rem;
   }
-  /* Mobile keeps the section links as a scrollable row - hiding them left
-     phone users with no way to navigate the page. */
-  .nav-links {
-    display: flex;
-    gap: 0.15rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    margin-left: 0.6rem;
-    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, #000 88%, transparent);
-  }
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-links a {
-    white-space: nowrap;
-    font-size: 11.5px;
-    padding: 4px 8px;
-  }
   section {
     padding: 3rem 1.2rem;
   }
@@ -1207,24 +1128,11 @@ footer {
     grid-template-columns: 1fr;
   }
   .back-to-top {
-    bottom: 9.7rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  .qr-toggle {
-    bottom: 3.9rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-  }
-  .theme-toggle {
     bottom: 1rem;
     right: 1rem;
     width: 40px;
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
   }
   .edu-card {
     flex-direction: column;
@@ -1243,35 +1151,9 @@ footer {
 }
 
 /* Design-theme picker */
-.skin-picker {
-  position: fixed;
-  bottom: 9.2rem;
-  right: 1.8rem;
-  z-index: 201;
-}
-.skin-toggle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--toggle-bg);
-  border: 1px solid var(--border2);
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text);
-  box-shadow: var(--glow-accent);
-  transition: all 0.2s ease;
-}
-.skin-toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-}
 .skin-menu {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 10px);
   right: 0;
   min-width: 172px;
   background: var(--card);
@@ -1331,13 +1213,160 @@ footer {
 .skin-dot-aurora {
   background: linear-gradient(135deg, #7c5cff, #f65cae 55%, #ffb457);
 }
-@media (max-width: 760px) {
-  .skin-picker {
-    bottom: 6.8rem;
-    right: 1rem;
+
+/* Nav controls: colour mode, design pack and QR card live in the bar. Below
+   1080px the section links collapse behind the menu button into a dropdown. */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.theme-toggle,
+.qr-toggle,
+.skin-toggle,
+.nav-menu-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+.theme-toggle:hover,
+.qr-toggle:hover,
+.skin-toggle:hover,
+.nav-menu-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.skin-picker {
+  position: relative;
+}
+.nav-menu-toggle {
+  display: none;
+}
+@media (max-width: 1080px) {
+  .nav-menu-toggle {
+    display: flex;
   }
-  .skin-toggle {
-    width: 40px;
-    height: 40px;
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.4rem 1.5rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border2);
+  }
+  nav.open .nav-links {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 0.9rem 0;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+  .nav-links a.active {
+    border-bottom-color: var(--border);
+  }
+}
+
+/* Hero trust strip */
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-top: 1.4rem;
+}
+.hero-trust-label {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 4px;
+}
+.trust-item {
+  font-family: "DM Mono", monospace;
+  font-size: 10.5px;
+  color: var(--muted);
+  padding: 3px 10px;
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+}
+@media (max-width: 860px) {
+  .hero-trust {
+    justify-content: center;
+  }
+}
+
+/* Private systems, listed compactly under the project cards */
+.also-built {
+  margin-top: 2.5rem;
+}
+.also-title {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.4rem;
+}
+.also-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.also-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2rem;
+}
+.also-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.also-name {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.also-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-align: right;
+}
+.also-desc {
+  grid-column: 1 / -1;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  .also-list {
+    grid-template-columns: 1fr;
   }
 }

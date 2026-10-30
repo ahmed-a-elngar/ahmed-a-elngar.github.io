@@ -155,6 +155,14 @@
       .photo-frame picture {
         display: contents;
       }
+      /* Menu button shows a hamburger when closed and an X when open. */
+      .nav-menu-toggle .icon-close,
+      nav.open .nav-menu-toggle .icon-open {
+        display: none;
+      }
+      nav.open .nav-menu-toggle .icon-close {
+        display: inline;
+      }
       /* Analytics consent banner. Theme-independent like the skip link, so
          every design pack gets the same legible, neutral notice. */
       .consent {
@@ -261,46 +269,6 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="cursor" id="cursor"></div>
     <div class="grain"></div>
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      aria-label="Dark mode"
-      aria-pressed="true"
-    >
-      🌙
-    </button>
-    <div class="skin-picker" id="skinPicker">
-      <button
-        class="skin-toggle"
-        id="skinToggle"
-        aria-label="Change design theme"
-        aria-expanded="false"
-        aria-haspopup="true"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" data-lucide="palette" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></svg>
-      </button>
-      <div class="skin-menu" id="skinMenu" role="menu" hidden>
-        <div class="skin-menu-label">Design</div>
-        <button class="skin-option" data-skin="midnight" role="menuitem">
-          <span class="skin-dot skin-dot-midnight"></span> Midnight
-        </button>
-        <button class="skin-option" data-skin="editorial" role="menuitem">
-          <span class="skin-dot skin-dot-editorial"></span> Editorial
-        </button>
-        <button class="skin-option" data-skin="aurora" role="menuitem">
-          <span class="skin-dot skin-dot-aurora"></span> Aurora
-        </button>
-      </div>
-    </div>
-    <button
-      class="qr-toggle"
-      id="qrToggle"
-      aria-label="Digital Contact"
-      aria-haspopup="dialog"
-      aria-controls="qrModal"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code" data-lucide="qr-code" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" /><rect width="5" height="5" x="16" y="3" rx="1" /><rect width="5" height="5" x="3" y="16" rx="1" /><path d="M21 16h-3a2 2 0 0 0-2 2v3" /><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path d="M3 12h.01" /><path d="M12 3h.01" /><path d="M12 16v.01" /><path d="M16 12h1" /><path d="M21 12v.01" /><path d="M12 21v-1" /></svg>
-    </button>
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       ↑
     </button>
@@ -337,18 +305,69 @@
     </div>
 
     <header>
-      <nav>
-      <a href="#" class="nav-logo"
-        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" data-lucide="zap" style="width: 18px; height: 18px" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg> AELNGAR</a
-      >
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+      <nav id="siteNav">
+        <a href="#" class="nav-logo"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" data-lucide="zap" style="width: 18px; height: 18px" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg> AELNGAR</a
+        >
+        <div class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Dark mode"
+            aria-pressed="true"
+          >
+            🌙
+          </button>
+          <div class="skin-picker" id="skinPicker">
+            <button
+              class="skin-toggle"
+              id="skinToggle"
+              aria-label="Change design theme"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" data-lucide="palette" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></svg>
+            </button>
+            <div class="skin-menu" id="skinMenu" role="menu" hidden>
+              <div class="skin-menu-label">Design</div>
+              <button class="skin-option" data-skin="midnight" role="menuitem">
+                <span class="skin-dot skin-dot-midnight"></span> Midnight
+              </button>
+              <button class="skin-option" data-skin="editorial" role="menuitem">
+                <span class="skin-dot skin-dot-editorial"></span> Editorial
+              </button>
+              <button class="skin-option" data-skin="aurora" role="menuitem">
+                <span class="skin-dot skin-dot-aurora"></span> Aurora
+              </button>
+            </div>
+          </div>
+          <button
+            class="qr-toggle"
+            id="qrToggle"
+            aria-label="Digital Contact"
+            aria-haspopup="dialog"
+            aria-controls="qrModal"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code" data-lucide="qr-code" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" /><rect width="5" height="5" x="16" y="3" rx="1" /><rect width="5" height="5" x="3" y="16" rx="1" /><path d="M21 16h-3a2 2 0 0 0-2 2v3" /><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path d="M3 12h.01" /><path d="M12 3h.01" /><path d="M12 16v.01" /><path d="M16 12h1" /><path d="M21 12v.01" /><path d="M12 21v-1" /></svg>
+          </button>
+          <button
+            class="nav-menu-toggle"
+            id="navToggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu icon-open" data-lucide="menu" aria-hidden="true"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x icon-close" data-lucide="x" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+          </button>
         </div>
       </nav>
     </header>

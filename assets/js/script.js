@@ -72,6 +72,38 @@ filterBtns.forEach((btn) => {
 });
 updateFilterCounts();
 
+// Mobile menu
+// Below 1080px the section links collapse into a dropdown under the nav.
+const siteNav = document.getElementById("siteNav");
+const navToggle = document.getElementById("navToggle");
+
+function setMenu(open) {
+  siteNav.classList.toggle("open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+
+if (siteNav && navToggle) {
+  navToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setMenu(!siteNav.classList.contains("open"));
+  });
+  // Picking a section, tapping elsewhere or pressing Escape closes it.
+  document.getElementById("navLinks").addEventListener("click", (e) => {
+    if (e.target.closest("a")) setMenu(false);
+  });
+  document.addEventListener("click", (e) => {
+    if (siteNav.classList.contains("open") && !siteNav.contains(e.target))
+      setMenu(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && siteNav.classList.contains("open")) {
+      setMenu(false);
+      navToggle.focus();
+    }
+  });
+}
+
 // Back to Top
 const backBtn = document.getElementById("backToTop");
 backBtn.addEventListener("click", () => {

@@ -27,7 +27,8 @@ default theme. Colour mode (light/dark) is a separate axis stored in
 `localStorage.theme` — every theme implements both.
 
 **To add a theme:** create `assets/themes/<name>/theme.css`, then register the
-name in two places — the `THEMES` map in the `<head>` guard of `index.html`,
-and `THEME_PACKS` in `assets/js/script.js` — and add an option button to the
-`#skinMenu` markup. Style every class the markup uses; there is no shared
+name with its Google Fonts URL in the `THEMES` map in the `<head>` guard of
+`index.html` (script.js reads that map back, so there is no second list) and
+add an option button to the `#skinMenu` markup. Fonts are linked from `<head>`,
+not `@import`ed from the theme CSS, so they load in parallel. Style every class the markup uses; there is no shared
 base stylesheet, so each theme is self-contained.

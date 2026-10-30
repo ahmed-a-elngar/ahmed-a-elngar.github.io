@@ -92,17 +92,36 @@
       defer
       src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"
     ></script>
-    <!-- Custom Styles -->
+    <!-- Custom Styles. Fonts are linked here rather than @imported from the
+         theme CSS, so they download in parallel instead of after it. -->
+    <link
+      rel="stylesheet"
+      id="themeFonts"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+    />
     <link
       rel="stylesheet"
       id="themeCss"
       href="assets/themes/midnight/theme.css"
     />
     <!-- Resolve colour mode and design theme before first paint.
-         Two independent axes: data-theme = light|dark, themeCss = design pack. -->
+         Two independent axes: data-theme = light|dark, themeCss = design pack.
+         THEMES maps each pack to its Google Fonts stylesheet; script.js reads
+         it back from window.__themeFonts when the visitor switches packs. -->
     <script>
       (function () {
-        var THEMES = { midnight: 1, editorial: 1, aurora: 1 };
+        var GF = "https://fonts.googleapis.com/css2?family=";
+        var THEMES = (window.__themeFonts = {
+          midnight:
+            GF +
+            "Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap",
+          editorial:
+            GF +
+            "Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+          aurora:
+            GF +
+            "Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+        });
         try {
           document.documentElement.setAttribute(
             "data-theme",
@@ -117,6 +136,10 @@
             // still blocks the first paint - no flash of the default theme.
             if (link && link.getAttribute("href") !== href) {
               link.setAttribute("href", href);
+            }
+            var fonts = document.getElementById("themeFonts");
+            if (fonts && fonts.getAttribute("href") !== THEMES[pack]) {
+              fonts.setAttribute("href", THEMES[pack]);
             }
           } else {
             document.documentElement.setAttribute("data-pack", "midnight");

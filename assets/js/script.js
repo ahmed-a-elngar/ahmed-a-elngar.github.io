@@ -206,11 +206,14 @@ if (qrToggle && qrModal && qrClose) {
 // Design-theme picker
 // The pre-paint guard in <head> already applied the stored pack; this only
 // handles switching and keeping the menu in sync.
-const THEME_PACKS = ["midnight", "editorial", "aurora"];
+// Pack names and their font stylesheets come from the <head> guard.
+const THEME_FONTS = window.__themeFonts || {};
+const THEME_PACKS = Object.keys(THEME_FONTS);
 const skinToggle = document.getElementById("skinToggle");
 const skinMenu = document.getElementById("skinMenu");
 const skinPicker = document.getElementById("skinPicker");
 const themeCss = document.getElementById("themeCss");
+const themeFonts = document.getElementById("themeFonts");
 
 if (skinToggle && skinMenu && themeCss) {
   const currentPack = () =>
@@ -234,6 +237,7 @@ if (skinToggle && skinMenu && themeCss) {
   function applyPack(pack) {
     if (!THEME_PACKS.includes(pack) || pack === currentPack()) return closeMenu();
     themeCss.href = "assets/themes/" + pack + "/theme.css";
+    if (themeFonts) themeFonts.href = THEME_FONTS[pack];
     document.documentElement.setAttribute("data-pack", pack);
     try {
       localStorage.setItem("themePack", pack);

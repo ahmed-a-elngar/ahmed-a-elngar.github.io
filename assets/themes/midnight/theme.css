@@ -271,7 +271,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 3rem;
+  /* Inset matches the section content edge (1200px max minus 2rem padding). */
+  padding: 1rem max(2rem, calc((100% - 1136px) / 2));
   backdrop-filter: blur(16px);
   background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
@@ -324,7 +325,7 @@ nav {
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 3rem;
+  padding: 0 2rem;
 }
 .glow {
   position: absolute;
@@ -347,7 +348,7 @@ nav {
   left: -10vw;
 }
 .hero-inner {
-  max-width: 1200px;
+  max-width: 1136px;
   margin: 0 auto;
   width: 100%;
   display: flex;

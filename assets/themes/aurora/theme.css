@@ -210,9 +210,11 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2.4rem;
+  /* The pill sits 1rem inside the 1240px column; 1.4rem padding puts its
+     content on the same edge as the sections (2.4rem). */
+  padding: 1rem 1.4rem;
   margin: 0.9rem auto;
-  max-width: 1240px;
+  max-width: calc(1240px - 2rem);
   width: calc(100% - 2rem);
   border-radius: 100px;
   background: var(--glass);

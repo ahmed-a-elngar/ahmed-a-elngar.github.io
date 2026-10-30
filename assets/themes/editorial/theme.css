@@ -129,7 +129,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.15rem 3rem;
+  /* Inset matches the content edge (1180px max minus 3rem padding). */
+  padding: 1.15rem max(3rem, calc((100% - 1084px) / 2));
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);

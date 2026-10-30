@@ -41,11 +41,15 @@ document
 // Project Filter with Counts
 const filterBtns = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
+// Private systems sit in a compact list under the cards but filter with them.
+const alsoBuilt = document.getElementById("alsoBuilt");
+const alsoItems = document.querySelectorAll(".also-item");
+const allProjects = [...projectCards, ...alsoItems];
 function updateFilterCounts() {
   filterBtns.forEach((btn) => {
     const filter = btn.getAttribute("data-filter");
-    const n = [...projectCards].filter(
-      (card) => filter === "all" || card.getAttribute("data-category") === filter,
+    const n = allProjects.filter(
+      (item) => filter === "all" || item.getAttribute("data-category") === filter,
     ).length;
     const count = document.createElement("span");
     count.className = "filter-count";
@@ -68,6 +72,15 @@ filterBtns.forEach((btn) => {
         card.classList.add("hide");
       }
     });
+    let shown = 0;
+    alsoItems.forEach((item) => {
+      const match =
+        filterValue === "all" ||
+        item.getAttribute("data-category") === filterValue;
+      item.hidden = !match;
+      if (match) shown++;
+    });
+    if (alsoBuilt) alsoBuilt.hidden = shown === 0;
   });
 });
 updateFilterCounts();

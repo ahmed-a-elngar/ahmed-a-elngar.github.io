@@ -937,26 +937,6 @@ section {
   border-color: var(--edge-strong);
   transform: translateX(3px);
 }
-.enterprise-badge,
-.coming-soon {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.05em;
-  color: var(--dim);
-  padding: 8px 11px;
-  border-radius: 12px;
-  background: var(--glass);
-  border: 1px solid var(--edge);
-}
-.coming-soon {
-  justify-content: center;
-  color: var(--c4);
-  background: rgba(255, 180, 87, 0.12);
-}
 
 /* --------------------------------------------------------- education ----- */
 .edu-card {
@@ -1446,4 +1426,66 @@ nav {
   border-radius: 100px;
   background: var(--glass);
   border: 1px solid var(--edge);
+}
+
+/* ---------------------------------------------------- also built ----- */
+.also-built {
+  margin-top: 2.6rem;
+}
+.also-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+.also-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--edge);
+}
+.also-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+}
+.also-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+}
+.also-name {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.also-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-align: right;
+}
+.also-desc {
+  grid-column: 1 / -1;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  .also-list {
+    grid-template-columns: 1fr;
+  }
 }

@@ -743,26 +743,6 @@ section {
 .project-url:hover {
   border-bottom-color: var(--accent);
 }
-.enterprise-badge,
-.coming-soon {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  color: var(--dim);
-  padding: 7px 10px;
-  border: 1px dashed var(--rule-strong);
-  border-radius: 3px;
-}
-.coming-soon {
-  justify-content: center;
-  color: var(--accent);
-  border-color: var(--accent-line);
-  background: var(--accent-soft);
-}
 
 /* --------------------------------------------------------- education ----- */
 .edu-card {
@@ -1245,4 +1225,63 @@ nav {
   margin-right: 14px;
   font-style: normal;
   color: var(--accent);
+}
+
+/* ---------------------------------------------------- also built ----- */
+.also-built {
+  margin-top: 2.6rem;
+}
+.also-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.3rem;
+}
+.also-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.also-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 3rem;
+}
+.also-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.also-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+.also-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--dim);
+  text-align: right;
+}
+.also-desc {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  .also-list {
+    grid-template-columns: 1fr;
+  }
 }

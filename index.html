@@ -65,19 +65,9 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <meta name="theme-color" content="#2772db" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PBTSXBCGWF"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-PBTSXBCGWF");
-    </script>
+    <!-- Google Analytics is opt-in: script.js loads gtag.js only after the
+         visitor accepts the consent banner (choice kept in
+         localStorage.analyticsConsent). Nothing is sent before that. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -164,6 +154,65 @@
          .photo-frame exactly as it did before. */
       .photo-frame picture {
         display: contents;
+      }
+      /* Analytics consent banner. Theme-independent like the skip link, so
+         every design pack gets the same legible, neutral notice. */
+      .consent {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        z-index: 998;
+        max-width: 560px;
+        margin-inline: auto;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(17, 17, 20, 0.96);
+        color: #f2f2f2;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+        font: 400 13.5px/1.55 system-ui, sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 14px;
+      }
+      .consent[hidden] {
+        display: none;
+      }
+      .consent p {
+        flex: 1 1 260px;
+        margin: 0;
+      }
+      .consent-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .consent button,
+      .footer-link {
+        font: inherit;
+        cursor: pointer;
+      }
+      .consent button {
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: transparent;
+        color: inherit;
+      }
+      .consent button.consent-accept {
+        background: #f2f2f2;
+        border-color: #f2f2f2;
+        color: #111;
+        font-weight: 600;
+      }
+      .footer-link {
+        background: none;
+        border: 0;
+        padding: 0;
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
       :focus-visible {
         outline: 3px solid currentColor;
@@ -327,7 +376,13 @@
           </p>
           <div class="hero-btns">
             <a href="#projects" class="btn-primary">View work →</a
-            ><a href="#contact" class="btn-outline">Contact me</a>
+            ><a href="#contact" class="btn-outline">Contact me</a
+            ><a
+              href="Ahmed_AbdElaziz_CV.pdf"
+              class="btn-outline"
+              download="Ahmed_Elngar_CV.pdf"
+              >Download CV ↓</a
+            >
           </div>
           <div class="hero-stats">
             <div>
@@ -1073,16 +1128,24 @@
             <div class="contact-label">Email</div>
             <div class="contact-value">AhmedAbdElazizElngar@gmail.com</div>
           </div></a
-        ><a class="contact-item reveal d1" href="tel:+966534501096"
-          ><div class="contact-icon"><i data-lucide="phone"></i></div>
+        ><a
+          class="contact-item reveal d1"
+          href="https://wa.me/966534501096"
+          target="_blank"
+          rel="noopener"
+          ><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" data-lucide="message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg></div>
           <div>
-            <div class="contact-label">Phone / WhatsApp · Saudi Arabia</div>
+            <div class="contact-label">WhatsApp / Phone · Saudi Arabia</div>
             <div class="contact-value">+966 53 450 1096</div>
           </div></a
-        ><a class="contact-item reveal" href="tel:+201018689353"
-          ><div class="contact-icon"><i data-lucide="phone"></i></div>
+        ><a
+          class="contact-item reveal"
+          href="https://wa.me/201018689353"
+          target="_blank"
+          rel="noopener"
+          ><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" data-lucide="message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg></div>
           <div>
-            <div class="contact-label">Phone / WhatsApp · Egypt</div>
+            <div class="contact-label">WhatsApp / Phone · Egypt</div>
             <div class="contact-value">+20 101 868 9353</div>
           </div></a
         ><a
@@ -1142,10 +1205,31 @@
     <footer>
       <p>
         Ahmed Abdelaziz Mohamed Elngar · Backend Architect · Jeddah, Saudi
-        Arabia · 2026
+        Arabia · <span id="year">2026</span>
+      </p>
+      <p>
+        <a href="Ahmed_AbdElaziz_CV.pdf" download="Ahmed_Elngar_CV.pdf"
+          >Download CV</a
+        >
+        ·
+        <button type="button" class="footer-link" id="consentSettings">
+          Cookie settings
+        </button>
       </p>
     </footer>
 
+    <div class="consent" id="consentBanner" role="region" aria-label="Cookie consent" hidden>
+      <p>
+        I use Google Analytics to see which parts of this portfolio people
+        read. It only runs if you allow it.
+      </p>
+      <div class="consent-actions">
+        <button type="button" id="consentDecline">Decline</button>
+        <button type="button" class="consent-accept" id="consentAccept">
+          Allow
+        </button>
+      </div>
+    </div>
     <!-- Custom Scripts -->
     <script defer src="assets/js/script.js"></script>
     <script type="application/ld+json">

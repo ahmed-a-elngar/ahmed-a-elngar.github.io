@@ -255,12 +255,76 @@ if (skinToggle && skinMenu && themeCss) {
   markCurrent();
 }
 
-// Initialize Lucide Icons
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof lucide !== "undefined") {
-    lucide.createIcons();
+// Analytics consent
+// gtag.js is only injected after an explicit "Allow"; until then (and after a
+// "Decline") no Google script is requested and no cookies are set.
+const GA_ID = "G-PBTSXBCGWF";
+const consentBanner = document.getElementById("consentBanner");
+
+function readConsent() {
+  try {
+    return localStorage.getItem("analyticsConsent");
+  } catch (e) {
+    return null;
   }
-});
+}
+
+function loadAnalytics() {
+  if (window.gtag) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () {
+    dataLayer.push(arguments);
+  };
+  gtag("js", new Date());
+  gtag("config", GA_ID);
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+  document.head.appendChild(s);
+}
+
+function setConsent(value) {
+  try {
+    localStorage.setItem("analyticsConsent", value);
+  } catch (e) {}
+  consentBanner.hidden = true;
+  if (value === "granted") {
+    loadAnalytics();
+  } else if (window.gtag) {
+    // Withdrawn after GA already loaded this visit: drop its cookies now; the
+    // script itself will not be loaded again on the next visit.
+    document.cookie.split(";").forEach((c) => {
+      const name = c.split("=")[0].trim();
+      if (name.startsWith("_ga")) {
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=${location.hostname}`;
+        document.cookie = `${name}=; Max-Age=0; path=/`;
+      }
+    });
+  }
+}
+
+if (consentBanner) {
+  const consent = readConsent();
+  if (consent === "granted") loadAnalytics();
+  else if (consent !== "denied") consentBanner.hidden = false;
+
+  document
+    .getElementById("consentAccept")
+    .addEventListener("click", () => setConsent("granted"));
+  document
+    .getElementById("consentDecline")
+    .addEventListener("click", () => setConsent("denied"));
+  const settings = document.getElementById("consentSettings");
+  if (settings)
+    settings.addEventListener("click", () => {
+      consentBanner.hidden = false;
+      document.getElementById("consentAccept").focus();
+    });
+}
+
+// Footer year
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Service Worker Registration for PWA
 if ("serviceWorker" in navigator) {

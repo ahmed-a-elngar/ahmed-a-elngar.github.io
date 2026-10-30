@@ -87,11 +87,6 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <!-- Lucide Icons (pinned; deferred so it never blocks first paint) -->
-    <script
-      defer
-      src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"
-    ></script>
     <!-- Custom Styles. Fonts are linked here rather than @imported from the
          theme CSS, so they download in parallel instead of after it. -->
     <link
@@ -233,7 +228,7 @@
         aria-expanded="false"
         aria-haspopup="true"
       >
-        <i data-lucide="palette"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" data-lucide="palette" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></svg>
       </button>
       <div class="skin-menu" id="skinMenu" role="menu" hidden>
         <div class="skin-menu-label">Design</div>
@@ -283,7 +278,7 @@
         <p>Backend Architect</p>
         <div style="display: flex; flex-direction: column; gap: 10px">
           <a href="assets/contact.vcf" download="Ahmed_Elngar.vcf" class="qr-close" style="text-decoration: none; display: inline-block;">
-            <i data-lucide="download" style="width: 14px; height: 14px; margin-right: 5px;"></i> Save Contact
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" data-lucide="download" style="width: 14px; height: 14px; margin-right: 5px;" aria-hidden="true"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg> Save Contact
           </a>
           <button class="qr-close" id="qrClose" style="background: transparent; color: var(--muted); border: 1px solid var(--border2);">
             Close
@@ -295,7 +290,7 @@
     <header>
       <nav>
       <a href="#" class="nav-logo"
-        ><i data-lucide="zap" style="width: 18px; height: 18px"></i> AELNGAR</a
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" data-lucide="zap" style="width: 18px; height: 18px" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg> AELNGAR</a
       >
       <div class="nav-links">
         <a href="#about">About</a>
@@ -470,7 +465,7 @@
       </p>
       <div class="expertise-grid">
         <div class="expertise-card reveal">
-          <div class="expertise-icon"><i data-lucide="credit-card"></i></div>
+          <div class="expertise-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card" data-lucide="credit-card" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg></div>
           <div class="expertise-title">Payment Gateway Integration</div>
           <div class="expertise-desc">
             End-to-end checkout flows against live payment providers — hosted
@@ -486,7 +481,7 @@
           </div>
         </div>
         <div class="expertise-card reveal d1">
-          <div class="expertise-icon"><i data-lucide="monitor-play"></i></div>
+          <div class="expertise-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor-play" data-lucide="monitor-play" aria-hidden="true"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z" /><path d="M12 17v4" /><path d="M8 21h8" /><rect x="2" y="3" width="20" height="14" rx="2" /></svg></div>
           <div class="expertise-title">Secure Video Delivery</div>
           <div class="expertise-desc">
             Course video served as segmented HLS streams with protected
@@ -500,7 +495,7 @@
           </div>
         </div>
         <div class="expertise-card reveal d2">
-          <div class="expertise-icon"><i data-lucide="badge-check"></i></div>
+          <div class="expertise-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-check" data-lucide="badge-check" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m16 9-5.5 5.5L8 12" /></svg></div>
           <div class="expertise-title">Regulatory &amp; Fleet Integration</div>
           <div class="expertise-desc">
             Government-spec integrations built to strict schemas and running in
@@ -588,19 +583,19 @@
       </p>
       <div class="filter-bar reveal" id="filterBar">
         <button class="filter-btn active" data-filter="all">
-          <i data-lucide="layers" style="width: 14px; height: 14px"></i> All
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers" data-lucide="layers" style="width: 14px; height: 14px" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg> All
           Projects
         </button>
         <button class="filter-btn" data-filter="fulltime">
-          <i data-lucide="building-2" style="width: 14px; height: 14px"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 14px; height: 14px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
           Full-time
         </button>
         <button class="filter-btn" data-filter="freelance">
-          <i data-lucide="briefcase" style="width: 14px; height: 14px"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 14px; height: 14px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
           Freelance
         </button>
         <button class="filter-btn" data-filter="personal">
-          <i data-lucide="zap" style="width: 14px; height: 14px"></i> Personal
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" data-lucide="zap" style="width: 14px; height: 14px" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg> Personal
         </button>
       </div>
       <div class="projects-grid" id="projectsGrid">
@@ -611,7 +606,7 @@
             <div class="project-year">2023-2026</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">iDara ERP</div>
@@ -633,7 +628,7 @@
             <div class="project-year">2024</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">Fatoora (ZATCA)</div>
@@ -655,7 +650,7 @@
             <div class="project-year">2023-2026</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">Vehicle Tracking</div>
@@ -680,7 +675,7 @@
             <div class="project-year">2023-2026</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">Umra.net</div>
@@ -702,7 +697,7 @@
             <div class="project-year">2026</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">iDara Sign</div>
@@ -725,7 +720,7 @@
             <div class="project-year">2024-2026</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">Trips Manager</div>
@@ -747,7 +742,7 @@
             <div class="project-year">2022</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">AlBadr For Sales</div>
@@ -760,7 +755,7 @@
             ><span class="tag">SonarQube</span>
           </div>
           <div class="enterprise-badge">
-            <i data-lucide="lock" style="width: 10px; height: 10px"></i> Private
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock" data-lucide="lock" style="width: 10px; height: 10px" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg> Private
             Enterprise System
           </div>
         </div>
@@ -770,7 +765,7 @@
             <div class="project-year">2022</div>
           </div>
           <div class="project-category fulltime">
-            <i data-lucide="building-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2" data-lucide="building-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="M10 12h4" /><path d="M10 8h4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg>
             Full-time
           </div>
           <div class="project-name">Awazel</div>
@@ -783,7 +778,7 @@
             ><span class="tag">DataTables</span>
           </div>
           <div class="enterprise-badge">
-            <i data-lucide="building" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" data-lucide="building" style="width: 10px; height: 10px" aria-hidden="true"><path d="M12 10h.01" /><path d="M12 14h.01" /><path d="M12 6h.01" /><path d="M16 10h.01" /><path d="M16 14h.01" /><path d="M16 6h.01" /><path d="M8 10h.01" /><path d="M8 14h.01" /><path d="M8 6h.01" /><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" /><rect x="4" y="2" width="16" height="20" rx="2" /></svg>
             Internal Tool
           </div>
         </div>
@@ -794,7 +789,7 @@
             <div class="project-year">2023</div>
           </div>
           <div class="project-category freelance">
-            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 10px; height: 10px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
             Part-time
           </div>
           <div class="project-name">We2up ERP</div>
@@ -807,7 +802,7 @@
             ><span class="tag">MySQL</span>
           </div>
           <div class="enterprise-badge">
-            <i data-lucide="shield-check" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check" data-lucide="shield-check" style="width: 10px; height: 10px" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
             Confidential Client
           </div>
         </div>
@@ -817,7 +812,7 @@
             <div class="project-year">2026</div>
           </div>
           <div class="project-category freelance">
-            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 10px; height: 10px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
             Freelance
           </div>
           <div class="project-name">BASMAT AQAR</div>
@@ -839,7 +834,7 @@
             <div class="project-year">2026</div>
           </div>
           <div class="project-category freelance">
-            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 10px; height: 10px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
             Freelance
           </div>
           <div class="project-name">Masahat Sukoon</div>
@@ -865,7 +860,7 @@
             <div class="project-year">2023</div>
           </div>
           <div class="project-category freelance">
-            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 10px; height: 10px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
             Freelance
           </div>
           <div class="project-name">Amwaj</div>
@@ -878,7 +873,7 @@
             ><span class="tag">SaaS</span>
           </div>
           <div class="enterprise-badge">
-            <i data-lucide="globe" style="width: 10px; height: 10px"></i> Active
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe" data-lucide="globe" style="width: 10px; height: 10px" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg> Active
             SaaS (Link Protected)
           </div>
         </div>
@@ -888,7 +883,7 @@
             <div class="project-year">2023</div>
           </div>
           <div class="project-category freelance">
-            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 10px; height: 10px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
             Freelance
           </div>
           <div class="project-name">Highdam</div>
@@ -901,7 +896,7 @@
             ><span class="tag">DataTables</span>
           </div>
           <div class="enterprise-badge">
-            <i data-lucide="database" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database" data-lucide="database" style="width: 10px; height: 10px" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg>
             Private ERP
           </div>
         </div>
@@ -911,7 +906,7 @@
             <div class="project-year">2023</div>
           </div>
           <div class="project-category freelance">
-            <i data-lucide="briefcase" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" data-lucide="briefcase" style="width: 10px; height: 10px" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
             Freelance
           </div>
           <div class="project-name">Pie OCR API</div>
@@ -924,7 +919,7 @@
             ><span class="tag">OCR</span>
           </div>
           <div class="enterprise-badge">
-            <i data-lucide="code-2" style="width: 10px; height: 10px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2" data-lucide="code-2" style="width: 10px; height: 10px" aria-hidden="true"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
             Private API
           </div>
         </div>
@@ -935,7 +930,7 @@
             <div class="project-year">2026</div>
           </div>
           <div class="project-category personal">
-            <i data-lucide="zap" style="width: 10px; height: 10px"></i> Personal
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" data-lucide="zap" style="width: 10px; height: 10px" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg> Personal
           </div>
           <div class="project-name">Kassemha</div>
           <div class="project-desc">
@@ -983,7 +978,7 @@
         <a
           class="contact-item reveal"
           href="mailto:AhmedAbdElazizElngar@gmail.com"
-          ><div class="contact-icon"><i data-lucide="mail"></i></div>
+          ><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail" data-lucide="mail" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg></div>
           <div>
             <div class="contact-label">Email</div>
             <div class="contact-value">AhmedAbdElazizElngar@gmail.com</div>

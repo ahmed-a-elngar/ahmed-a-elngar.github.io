@@ -42,31 +42,16 @@ document
 const filterBtns = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 function updateFilterCounts() {
-  const counts = { all: 0, fulltime: 0, freelance: 0, personal: 0 };
-  projectCards.forEach((card) => {
-    const cat = card.getAttribute("data-category");
-    if (cat === "fulltime") counts.fulltime++;
-    else if (cat === "freelance") counts.freelance++;
-    else if (cat === "personal") counts.personal++;
-    counts.all++;
+  filterBtns.forEach((btn) => {
+    const filter = btn.getAttribute("data-filter");
+    const n = [...projectCards].filter(
+      (card) => filter === "all" || card.getAttribute("data-category") === filter,
+    ).length;
+    const count = document.createElement("span");
+    count.className = "filter-count";
+    count.textContent = ` (${n})`;
+    btn.appendChild(count);
   });
-  const btnAll = document.querySelector('[data-filter="all"]');
-  if (btnAll)
-    btnAll.innerHTML = `<i data-lucide="layers" style="width: 14px; height: 14px"></i> All Projects <span class="filter-count">(${counts.all})</span>`;
-  const btnFull = document.querySelector('[data-filter="fulltime"]');
-  if (btnFull)
-    btnFull.innerHTML = `<i data-lucide="building-2" style="width: 14px; height: 14px"></i> Full-time <span class="filter-count">(${counts.fulltime})</span>`;
-  const btnFree = document.querySelector('[data-filter="freelance"]');
-  if (btnFree)
-    btnFree.innerHTML = `<i data-lucide="briefcase" style="width: 14px; height: 14px"></i> Freelance <span class="filter-count">(${counts.freelance})</span>`;
-  const btnPers = document.querySelector('[data-filter="personal"]');
-  if (btnPers)
-    btnPers.innerHTML = `<i data-lucide="zap" style="width: 14px; height: 14px"></i> Personal <span class="filter-count">(${counts.personal})</span>`;
-
-  // Re-run Lucide for dynamic content
-  if (typeof lucide !== "undefined") {
-    lucide.createIcons();
-  }
 }
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -244,8 +229,6 @@ if (skinToggle && skinMenu && themeCss) {
     } catch (e) {}
     markCurrent();
     closeMenu();
-    // Icons are re-created because a theme may size or restyle them.
-    if (typeof lucide !== "undefined") lucide.createIcons();
   }
 
   skinToggle.addEventListener("click", (e) => {
